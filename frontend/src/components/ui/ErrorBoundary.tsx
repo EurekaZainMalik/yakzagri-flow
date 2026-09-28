@@ -1,6 +1,4 @@
 "use client";
-import { t as translateCopy } from "@/lib/i18n";
-
 
 import { Component, type ReactNode, type ErrorInfo } from "react";
 import {
@@ -8,6 +6,7 @@ import {
   resolveCorrelationId,
 } from "@/lib/correlationId";
 import { reportBoundaryError } from "@/lib/errorReporter";
+import { ErrorBoundaryFallbackPage } from "./ErrorBoundaryFallbackPage";
 
 // ─── Public API ────────────────────────────────────────────────────────────
 
@@ -49,125 +48,6 @@ interface ErrorBoundaryState {
   hasError: boolean;
   error: Error | null;
   correlationId: string;
-}
-
-// ─── Default branded fallback ───────────────────────────────────────────────
-
-function DefaultFallback({
-  error,
-  correlationId,
-  onReset,
-  backLabel,
-  backHref,
-}: {
-  error: Error;
-  correlationId: string;
-  onReset: () => void;
-  backLabel: string;
-  backHref: string;
-}) {
-  function handleCopy() {
-    navigator.clipboard.writeText(correlationId).catch(() => {
-      /* best-effort */
-    });
-  }
-
-  return (
-    <div
-      role="alert"
-      aria-live="assertive"
-      data-testid="error-boundary-fallback"
-      className="flex flex-col items-center justify-center min-h-[40vh] gap-6 p-8 text-center max-w-lg mx-auto"
-    >
-      {/* Icon */}
-      <div className="h-14 w-14 rounded-full bg-status-danger/10 flex items-center justify-center flex-shrink-0">
-        <svg
-          className="h-7 w-7 text-status-danger"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-          />
-        </svg>
-      </div>
-
-      {/* Heading + message */}
-      <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-semibold text-text-primary">
-          {translateCopy("common.somethingWentWrong")}
-        </h2>
-        <p className="text-sm text-text-secondary">
-          {process.env.NODE_ENV !== "production" && error.message
-            ? error.message
-            : "An unexpected error occurred. Your funds are safe — this page could not be loaded."}
-        </p>
-      </div>
-
-      {/* Correlation ID */}
-      <div className="w-full rounded-lg bg-bg-elevated border border-border-default px-4 py-3 flex flex-col gap-1">
-        <span className="text-xs font-medium text-text-muted uppercase tracking-wider">
-          {translateCopy("ui.error_reference_eda2378")}
-        </span>
-        <div className="flex items-center justify-between gap-2">
-          <code
-            data-testid="correlation-id"
-            className="text-sm font-mono text-accent-gold break-all"
-          >
-            {correlationId}
-          </code>
-          <button
-            type="button"
-            onClick={handleCopy}
-            aria-label={translateCopy("ui.copy_correlation_id_6dbeeef")}
-            className="flex-shrink-0 rounded-md p-1.5 text-text-muted hover:text-text-primary hover:bg-bg-input transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold"
-          >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
-          </button>
-        </div>
-        <p className="text-xs text-text-muted">
-          {translateCopy("ui.quote_this_id_when_contacting_su_88426b1")}
-        </p>
-      </div>
-
-      {/* Recovery actions */}
-      <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-        <button
-          type="button"
-          onClick={onReset}
-          data-testid="retry-button"
-          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold bg-accent-gold text-text-inverse hover:bg-accent-gold-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
-        >
-          {translateCopy("wallet.rejectedCta")}
-        </button>
-        <a
-          href={backHref}
-          data-testid="back-to-dashboard"
-          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold text-center bg-bg-elevated border border-border-default text-text-primary hover:bg-bg-elevated/80 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
-        >
-          {backLabel}
-        </a>
-      </div>
-    </div>
-  );
 }
 
 // ─── Error Boundary Class ───────────────────────────────────────────────────
@@ -242,14 +122,20 @@ export class ErrorBoundary extends Component<
       return fallback;
     }
 
-    // Default branded fallback
+    // Default branded fallback — the shared full-page error UI, so the class
+    // boundary and the route-level error.tsx pages stay identical.
     return (
-      <DefaultFallback
-        error={error}
+      <ErrorBoundaryFallbackPage
         correlationId={correlationId}
-        onReset={this.handleReset}
+        onRetry={this.handleReset}
+        errorMessage={
+          process.env.NODE_ENV !== "production" && error.message
+            ? error.message
+            : "An unexpected error occurred. Your funds are safe — this page could not be loaded."
+        }
         backLabel={backLabel}
         backHref={backHref}
+        minHeightClass="min-h-[40vh]"
       />
     );
   }

@@ -12,7 +12,8 @@ import { api, ApiError, TradeResponse } from "@/lib/api";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
 import { NavButton } from "@/components/ui/Navigation";
-import { StatusBadge, type TradeStatus as BadgeTradeStatus } from "@/components/ui/StatusBadge";
+import { StatusBadge } from "@/components/ui/StatusBadge";
+import { toBadgeStatus } from "@/lib/trades/status";
 
 type TradeStatus = "all" | "active" | "pending" | "completed" | "disputed";
 type TradeRole = "all" | "buying" | "selling";
@@ -40,17 +41,6 @@ function matchesStatus(status: string, filter: TradeStatus) {
   if (filter === "pending") return ["created", "pending", "pending-signature"].includes(normalized);
   if (filter === "completed") return ["completed", "settled", "released", "resolved"].includes(normalized);
   return normalized === "disputed";
-}
-
-function toBadgeStatus(status: string): BadgeTradeStatus {
-  const normalized = status.toLowerCase().replace(/_/g, "-");
-  if (normalized === "disputed") return "disputed";
-  if (normalized === "delivered") return "delivered";
-  if (normalized === "funded" || normalized === "locked") return "locked";
-  if (["completed", "settled", "released", "resolved"].includes(normalized)) return "delivered";
-  if (normalized === "draft" || normalized === "cancelled") return "draft";
-  if (["in-transit", "in transit"].includes(normalized)) return "in-transit";
-  return "pending";
 }
 
 function TradesTableSkeleton() {

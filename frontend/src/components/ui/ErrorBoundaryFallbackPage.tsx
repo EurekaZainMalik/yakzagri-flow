@@ -6,11 +6,11 @@ import { t as translateCopy } from "@/lib/i18n";
  * Shared full-page error fallback.
  *
  * Rendered by:
- *   - src/app/error.tsx  (Next.js route-segment boundary)
- *   - ErrorBoundary default fallback (class component)
+ *   - the route-segment `error.tsx` boundaries (dashboard, trades, root)
+ *   - the `ErrorBoundary` class component's default fallback
  *
- * Accepts the minimum props needed so it can be used from both the class
- * component and the functional error.tsx page.
+ * It is the single implementation of the branded error UI: the class component
+ * used to carry a near-identical private copy, which drifted from this one.
  */
 
 interface ErrorBoundaryFallbackPageProps {
@@ -19,6 +19,16 @@ interface ErrorBoundaryFallbackPageProps {
   errorMessage?: string;
   backLabel?: string;
   backHref?: string;
+  /**
+   * Minimum height for the fallback container.
+   *
+   * Route-level `error.tsx` pages fill the whole route slot and use the full
+   * 50vh; the class-based `ErrorBoundary` renders inside an existing page
+   * shell, where the shorter 40vh keeps the surrounding layout intact.
+   *
+   * @default "min-h-[50vh]"
+   */
+  minHeightClass?: string;
 }
 
 export function ErrorBoundaryFallbackPage({
@@ -27,6 +37,7 @@ export function ErrorBoundaryFallbackPage({
   errorMessage,
   backLabel = "Back to dashboard",
   backHref = "/dashboard",
+  minHeightClass = "min-h-[50vh]",
 }: ErrorBoundaryFallbackPageProps) {
   function handleCopy() {
     navigator.clipboard.writeText(correlationId).catch(() => {/* best-effort */});
@@ -37,7 +48,7 @@ export function ErrorBoundaryFallbackPage({
       role="alert"
       aria-live="assertive"
       data-testid="error-boundary-fallback"
-      className="flex flex-col items-center justify-center min-h-[50vh] gap-6 p-8 text-center max-w-lg mx-auto"
+      className={`flex flex-col items-center justify-center ${minHeightClass} gap-6 p-8 text-center max-w-lg mx-auto`}
     >
       {/* Branded danger icon */}
       <div className="h-14 w-14 rounded-full bg-status-danger/10 flex items-center justify-center flex-shrink-0">
