@@ -20,7 +20,7 @@ export function LandingCtaButtons() {
       <Link
         href="/trades"
         onClick={() => trackEvent("landing_cta_clicked", { target: "trades" })}
-        className="px-8 py-3 border border-border-default text-text-primary font-semibold rounded-lg hover:bg-bg-card transition-colors"
+        className="px-8 py-3 border border-border-default text-text-primary font-semibold rounded-lg hover:bg-surface-1 transition-colors"
       >
         {translateCopy("ui.view_trades_07da04d")}
       </Link>

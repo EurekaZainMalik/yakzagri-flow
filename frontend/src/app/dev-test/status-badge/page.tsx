@@ -14,7 +14,7 @@ const ALL_STATUSES: TradeStatus[] = [
 
 export default function StatusBadgeDevPage() {
   return (
-    <div className="min-h-screen bg-primary p-10">
+    <div className="min-h-screen bg-surface-0 p-10">
       <h1 className="text-2xl font-bold text-gold mb-2">StatusBadge</h1>
       <p className="text-text-secondary text-sm mb-10">
         All 6 trade statuses · sizes sm &amp; md · icon on/off
@@ -61,7 +61,7 @@ export default function StatusBadgeDevPage() {
         <h2 className="text-xs font-semibold tracking-widest text-text-muted mb-4 uppercase">
           In-context — trade list row
         </h2>
-        <div className="bg-card border border-border-default rounded-xl overflow-hidden divide-y divide-border-default">
+        <div className="bg-surface-1 border border-border-default rounded-xl overflow-hidden divide-y divide-border-default">
           {[
             { id: "AMN-4920-X", commodity: "20T Non-GMO Soybeans", status: "in-transit" as TradeStatus },
             { id: "AMN-3811-Y", commodity: "50T White Maize", status: "delivered" as TradeStatus },
@@ -72,7 +72,7 @@ export default function StatusBadgeDevPage() {
           ].map((row) => (
             <div
               key={row.id}
-              className="flex items-center justify-between px-5 py-3.5 hover:bg-elevated transition-colors"
+              className="flex items-center justify-between px-5 py-3.5 hover:bg-surface-2 transition-colors"
             >
               <div>
                 <p className="text-sm font-semibold text-text-primary">{row.commodity}</p>

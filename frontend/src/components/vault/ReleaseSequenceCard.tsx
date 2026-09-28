@@ -39,7 +39,7 @@ export function ReleaseSequenceCard({
       case "in-progress":
         return "bg-gold-muted border-gold animate-pulse";
       case "pending":
-        return "bg-bg-elevated border-border-default";
+        return "bg-surface-2 border-border-default";
     }
   };
 
@@ -62,7 +62,7 @@ export function ReleaseSequenceCard({
       className="h-full"
     >
       <div className="flex items-center justify-end mb-6">
-        <span className="text-xs font-mono text-text-secondary bg-bg-elevated px-3 py-1 rounded-full border border-border-default">
+        <span className="text-xs font-mono text-text-secondary bg-surface-2 px-3 py-1 rounded-full border border-border-default">
           {translateCopy("ui.sequence_id_de0476d")}{" "}{sequenceId}
         </span>
       </div>

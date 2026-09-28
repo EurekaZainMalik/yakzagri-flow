@@ -208,7 +208,7 @@ All components use the existing design tokens:
 - Colors: `gold`, `status-success`, `status-danger`, `status-warning`
 - Spacing: Consistent with existing card layouts
 - Borders: `border-border-default`, `border-border-hover`
-- Backgrounds: `bg-bg-primary`, `bg-card`, `bg-bg-elevated`
+- Backgrounds: `bg-surface-0`, `bg-surface-1`, `bg-surface-2`
 
 ### Accessibility
 

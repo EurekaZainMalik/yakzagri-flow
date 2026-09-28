@@ -26,7 +26,7 @@ function StepIndicator() {
                   ? "bg-gold text-text-inverse"
                   : step > index
                   ? "bg-emerald text-text-inverse"
-                  : "bg-bg-elevated text-text-muted border border-border-default"
+                  : "bg-surface-2 text-text-muted border border-border-default"
               }`}
             >
               {step > index ? (
@@ -53,7 +53,7 @@ function StepIndicator() {
 function CreateTradeInner() {
   const { step } = useTrade();
   return (
-    <div className="min-h-screen bg-bg-primary flex items-start justify-center px-4 py-12">
+    <div className="min-h-screen bg-surface-0 flex items-start justify-center px-4 py-12">
       <div className="w-full max-w-lg">
         <div className="mb-6">
           <Link href="/" className="text-text-muted text-sm hover:text-text-secondary transition-colors">
@@ -68,7 +68,7 @@ function CreateTradeInner() {
           </p>
         </div>
 
-        <div className="bg-bg-card rounded-xl border border-border-default p-6 shadow-card">
+        <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
           <StepIndicator />
           {step === 1 && <Step1Details />}
           {step === 2 && <Step2Negotiation />}

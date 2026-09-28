@@ -27,7 +27,7 @@ const STATUS_STYLES: Record<string, string> = {
   OPEN: "text-status-warning bg-status-warning/15",
   UNDER_REVIEW: "text-status-info bg-status-info/15",
   RESOLVED: "text-status-success bg-status-success/15",
-  CLOSED: "text-text-secondary bg-bg-elevated",
+  CLOSED: "text-text-secondary bg-surface-2",
 };
 
 const PAGE_SIZE = 10;
@@ -150,7 +150,7 @@ export default function MediatorDisputesPage() {
             <Link
               key={dispute.id}
               href={`/mediator/disputes/${dispute.tradeId}`}
-              className="block p-6 bg-bg-elevated rounded-lg border border-border-default hover:border-border-hover transition-colors"
+              className="block p-6 bg-surface-2 rounded-lg border border-border-default hover:border-border-hover transition-colors"
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">

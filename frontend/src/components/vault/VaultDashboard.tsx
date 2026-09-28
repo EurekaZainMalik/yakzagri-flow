@@ -98,7 +98,7 @@ export function VaultDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary">
+    <div className="min-h-screen bg-surface-0 text-text-primary">
       <main className="max-w-7xl mx-auto px-6 py-10">
         <VaultHero
           escrowId={VAULT_DATA.escrowId}

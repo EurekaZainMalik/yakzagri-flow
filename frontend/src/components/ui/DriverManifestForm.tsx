@@ -70,8 +70,8 @@ export function DriverManifestForm({ isOpen, onComplete, onDismiss }: DriverMani
   return (
     <Dialog.Root open={isOpen} onOpenChange={(nextOpen) => !nextOpen && onDismiss?.()}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-overlay backdrop-blur-lg z-50 flex items-center justify-center">
-          <Dialog.Content className="bg-card border border-border-default shadow-modal max-w-md w-full max-h-[90vh] rounded-2xl flex flex-col">
+        <Dialog.Overlay className="fixed inset-0 bg-surface-3 backdrop-blur-lg z-50 flex items-center justify-center">
+          <Dialog.Content className="bg-surface-1 border border-border-default shadow-modal max-w-md w-full max-h-[90vh] rounded-2xl flex flex-col">
             <div className="p-6 border-b border-border-default">
               <div className="flex items-center gap-3 mb-4">
                 <span className={clsx("rounded-lg p-2", iconAccent)}>
@@ -133,7 +133,7 @@ export function DriverManifestForm({ isOpen, onComplete, onDismiss }: DriverMani
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="flex-1 px-4 py-2 rounded-lg border border-border-default text-secondary hover:bg-elevated transition-colors"
+                  className="flex-1 px-4 py-2 rounded-lg border border-border-default text-secondary hover:bg-surface-2 transition-colors"
                 >
                   {translateCopy("common.cancel")}
                 </button>

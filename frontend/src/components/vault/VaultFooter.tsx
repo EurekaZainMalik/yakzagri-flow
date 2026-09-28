@@ -69,7 +69,7 @@ export function VaultFooter({ version, links, socialLinks }: VaultFooterProps) {
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={`Visit ${social.platform} page`}
-                  className="w-10 h-10 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center hover:border-border-hover transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface-2 border border-border-default flex items-center justify-center hover:border-border-hover transition-colors"
                 >
                   <Icon className="w-4 h-4 text-text-primary" />
                 </a>

@@ -163,7 +163,7 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
         ref={triggerRef}
         onClick={open}
         aria-label="Open global search"
-        className="flex items-center gap-2 rounded-lg border border-border-default bg-bg-elevated px-2 py-1.5 text-sm text-text-muted hover:border-border-hover hover:text-text-secondary transition-colors sm:px-3"
+        className="flex items-center gap-2 rounded-lg border border-border-default bg-surface-2 px-2 py-1.5 text-sm text-text-muted hover:border-border-hover hover:text-text-secondary transition-colors sm:px-3"
       >
         <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
           <circle cx="6.5" cy="6.5" r="4.5" />
@@ -182,10 +182,10 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
       role="dialog"
       aria-modal="true"
       aria-label={translateCopy("ui.global_search_a2b8a16")}
-      className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] bg-overlay backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] bg-surface-3 backdrop-blur-sm"
       onClick={(e) => { if (e.target === e.currentTarget) close(); }}
     >
-      <div className="w-full max-w-xl rounded-2xl border border-border-default bg-bg-card shadow-modal overflow-hidden">
+      <div className="w-full max-w-xl rounded-2xl border border-border-default bg-surface-1 shadow-modal overflow-hidden">
         {/* Search input */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-border-default">
           <svg className="w-4 h-4 flex-shrink-0 text-text-muted" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -263,8 +263,8 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
                         onClick={() => handleSelect({ ...item, category })}
                         className={`w-full flex items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors ${
                           isActive
-                            ? "bg-bg-elevated text-text-primary"
-                            : "text-text-secondary hover:bg-bg-elevated hover:text-text-primary"
+                            ? "bg-surface-2 text-text-primary"
+                            : "text-text-secondary hover:bg-surface-2 hover:text-text-primary"
                         }`}
                       >
                         <span className="flex-1 text-sm font-medium truncate">{item.title}</span>

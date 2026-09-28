@@ -1,5 +1,6 @@
 "use client";
 import { t as translateCopy } from "@/lib/i18n";
+import { Badge } from "@/components/ui/Badge";
 
 
 import { useState } from "react";
@@ -27,7 +28,7 @@ function ShieldSuccessIcon({ className }: { className?: string }) {
       </svg>
       {/* Checkmark badge */}
       <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald rounded-full flex items-center justify-center">
-        <Check className="w-4 h-4 text-bg-primary" strokeWidth={3} />
+        <Check className="w-4 h-4 text-surface-0" strokeWidth={3} />
       </div>
     </div>
   );
@@ -66,29 +67,6 @@ function TransactionDetail({ label, value, valueClassName, suffix }: Transaction
         {value}
         {suffix && <span className="text-sm font-normal text-text-secondary ml-1">{suffix}</span>}
       </p>
-    </div>
-  );
-}
-
-// Status badge
-interface StatusBadgeProps {
-  status: string;
-  variant?: "success" | "warning" | "info";
-}
-
-function StatusBadge({ status, variant = "success" }: StatusBadgeProps) {
-  const variants = {
-    success: "text-emerald",
-    warning: "text-status-warning",
-    info: "text-status-info",
-  };
-
-  return (
-    <div className="flex items-center gap-2">
-      <span className={`w-2 h-2 rounded-full ${variant === "success" ? "bg-emerald" : variant === "warning" ? "bg-status-warning" : "bg-status-info"}`} />
-      <span className={`text-sm font-semibold uppercase tracking-wider ${variants[variant]}`}>
-        {status}
-      </span>
     </div>
   );
 }
@@ -146,7 +124,7 @@ function TransactionHash({ hash, explorerUrl }: TransactionHashProps) {
           <code className="text-sm font-mono text-text-secondary">{truncatedHash}</code>
           <button
             onClick={handleCopy}
-            className="p-1 hover:bg-bg-elevated rounded transition-colors"
+            className="p-1 hover:bg-surface-2 rounded transition-colors"
             aria-label={translateCopy("ui.copy_transaction_hash_964170c")}
           >
             {copied ? (
@@ -227,11 +205,11 @@ export function SuccessState({
   if (variant === "modal") {
     return (
       <div
-        className="fixed inset-0 bg-bg-overlay flex items-center justify-center z-50"
+        className="fixed inset-0 bg-surface-3 flex items-center justify-center z-50"
         onClick={onBackdropClick}
       >
         <div
-          className={`bg-bg-card border border-border-default rounded-2xl p-8 max-w-md w-full mx-4 shadow-modal relative ${className || ""}`}
+          className={`bg-surface-1 border border-border-default rounded-2xl p-8 max-w-md w-full mx-4 shadow-modal relative ${className || ""}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Icon with optional sparkles */}
@@ -305,7 +283,7 @@ export function SuccessState({
 
       {/* Transaction details card */}
       {transactionDetails && (
-        <div className="w-full max-w-2xl bg-bg-card border border-border-default rounded-2xl p-6 mb-8 relative overflow-hidden">
+        <div className="w-full max-w-2xl bg-surface-1 border border-border-default rounded-2xl p-6 mb-8 relative overflow-hidden">
           {/* Watermark logo */}
           <div className="absolute bottom-4 right-4 w-24 h-24 opacity-10">
             <svg viewBox="0 0 100 100" fill="currentColor" className="text-text-muted">
@@ -333,7 +311,9 @@ export function SuccessState({
             {transactionDetails.vaultStatus && (
               <div>
                 <p className="text-xs text-text-muted uppercase tracking-wider mb-1">{translateCopy("ui.vault_status_25fb1df")}</p>
-                <StatusBadge status={transactionDetails.vaultStatus} variant="success" />
+                <Badge variant="success" dot>
+                  {transactionDetails.vaultStatus}
+                </Badge>
               </div>
             )}
           </div>

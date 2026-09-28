@@ -28,7 +28,7 @@ const logIcons: Record<LogType, ReactNode> = {
 const logBgColors: Record<LogType, string> = {
   biometric: "bg-emerald-muted",
   "multi-sig": "bg-gold-muted",
-  ledger: "bg-bg-elevated",
+  ledger: "bg-surface-2",
 };
 
 export function AuditLogCard({ entries, isLiveSync = true }: AuditLogCardProps) {

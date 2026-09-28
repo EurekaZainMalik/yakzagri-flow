@@ -56,16 +56,16 @@ export function CurrencyInput({
           placeholder={placeholder || `0.${"0".repeat(Math.min(asset.decimals, 2))}`}
           aria-invalid={!!error}
           aria-describedby={describedBy}
-          className={`w-full rounded-lg border px-4 py-2 pr-16 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary disabled:cursor-not-allowed disabled:opacity-60 ${
+          className={`w-full rounded-lg border px-4 py-2 pr-16 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 disabled:cursor-not-allowed disabled:opacity-60 ${
             error
               ? "border-status-danger bg-status-danger/5 focus:border-status-danger"
-              : "border-border-default bg-bg-elevated focus:border-gold"
+              : "border-border-default bg-surface-2 focus:border-gold"
           }`}
           {...props}
         />
         
         {/* Asset symbol badge — decorative */}
-        <div aria-hidden="true" className="absolute right-2 top-1/2 -translate-y-1/2 rounded bg-bg-primary px-2 py-1">
+        <div aria-hidden="true" className="absolute right-2 top-1/2 -translate-y-1/2 rounded bg-surface-0 px-2 py-1">
           <span className="text-xs font-semibold text-text-secondary">
             {asset.symbol}
           </span>

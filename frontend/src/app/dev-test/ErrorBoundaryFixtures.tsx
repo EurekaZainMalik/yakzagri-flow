@@ -60,7 +60,7 @@ function FixtureCard({ label, description, children }: FixtureCardProps) {
   const [key, setKey] = useState(0);
 
   return (
-    <div className="bg-bg-card border border-border-default rounded-xl p-6 flex flex-col gap-4">
+    <div className="bg-surface-1 border border-border-default rounded-xl p-6 flex flex-col gap-4">
       <div>
         <h3 className="text-sm font-semibold text-text-primary">{label}</h3>
         <p className="text-xs text-text-muted mt-1">{description}</p>
@@ -133,13 +133,13 @@ export function ErrorBoundaryFixtures() {
           description="Only the inner boundary catches the crash — outer boundary and siblings keep rendering."
         >
           <div className="flex flex-col gap-3">
-            <div className="text-xs text-text-secondary px-2 py-1 bg-bg-elevated rounded">
+            <div className="text-xs text-text-secondary px-2 py-1 bg-surface-2 rounded">
               ↑ Outer boundary sibling (should stay visible)
             </div>
             <ErrorBoundary>
               <CrashOnRender message="Inner boundary crash (dev-test fixture)" />
             </ErrorBoundary>
-            <div className="text-xs text-text-secondary px-2 py-1 bg-bg-elevated rounded">
+            <div className="text-xs text-text-secondary px-2 py-1 bg-surface-2 rounded">
               ↓ Outer boundary sibling (should stay visible)
             </div>
           </div>

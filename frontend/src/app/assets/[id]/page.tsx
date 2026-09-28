@@ -153,7 +153,7 @@ function buildTradeDetail(
 
 function LoadingState() {
   return (
-    <div className="min-h-screen bg-primary flex items-center justify-center">
+    <div className="min-h-screen bg-surface-0 flex items-center justify-center">
       <div className="text-center">
         <div className="animate-spin w-8 h-8 border-2 border-gold border-t-transparent rounded-full mx-auto mb-4" />
         <p className="text-text-secondary">{translateCopy("ui.loading_trade_details_3bf9a13")}</p>
@@ -164,7 +164,7 @@ function LoadingState() {
 
 function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
-    <div className="min-h-screen bg-primary flex items-center justify-center">
+    <div className="min-h-screen bg-surface-0 flex items-center justify-center">
       <div className="text-center max-w-md px-6">
         <div className="w-16 h-16 rounded-full bg-status-danger/10 flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-status-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -193,7 +193,7 @@ function AuthRequired({ onConnect, onAuthenticate, isConnected, isLoading }: {
   isLoading: boolean;
 }) {
   return (
-    <div className="min-h-screen bg-primary flex items-center justify-center">
+    <div className="min-h-screen bg-surface-0 flex items-center justify-center">
       <div className="text-center max-w-md px-6">
         <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">

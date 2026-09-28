@@ -97,7 +97,7 @@ export function StreamClawbackForm({
             setPreviewResult(null);
           }}
           onBlur={() => setTouched(true)}
-          className="w-full rounded-md border border-border-default bg-bg-elevated px-3 py-2 text-sm text-text-primary focus-visible:outline-2 focus-visible:outline-gold"
+          className="w-full rounded-md border border-border-default bg-surface-2 px-3 py-2 text-sm text-text-primary focus-visible:outline-2 focus-visible:outline-gold"
           placeholder="0"
         />
       </FormField>
@@ -107,7 +107,7 @@ export function StreamClawbackForm({
       </Button>
 
       {previewResult && (
-        <div role="status" className="rounded-md border border-border-default bg-bg-elevated p-3 text-sm">
+        <div role="status" className="rounded-md border border-border-default bg-surface-2 p-3 text-sm">
           <p className="font-medium text-text-primary">Read-only preview</p>
           <p className="mt-1 text-text-secondary">
             Projected remaining vested balance: {previewResult.postClawbackBalance}. No balance was changed.

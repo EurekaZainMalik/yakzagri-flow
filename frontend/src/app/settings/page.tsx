@@ -26,7 +26,7 @@ function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-border-default bg-card p-5 md:p-6 space-y-5">
+    <div className="rounded-2xl border border-border-default bg-surface-1 p-5 md:p-6 space-y-5">
       <div>
         <h2 className="text-base font-semibold text-text-primary">{title}</h2>
         {description && (
@@ -68,7 +68,7 @@ function Toggle({
         aria-checked={checked}
         onClick={() => onChange(!checked)}
         className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-          checked ? "bg-gold" : "bg-bg-elevated"
+          checked ? "bg-gold" : "bg-surface-2"
         }`}
       >
         <span
@@ -229,7 +229,7 @@ export default function SettingsPage() {
           : "Freighter not detected";
 
   return (
-    <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+    <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Page header */}
         <div>
@@ -263,7 +263,7 @@ export default function SettingsPage() {
           title={translateCopy("ui.wallet_identity_4efb32d")}
           description="Your Stellar wallet is your identity on Amana."
         >
-          <div className="rounded-xl border border-border-default bg-bg-elevated px-4 py-4 space-y-3">
+          <div className="rounded-xl border border-border-default bg-surface-2 px-4 py-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-widest text-text-muted">
                 {translateCopy("ui.wallet_address_d6607aa")}
@@ -274,7 +274,7 @@ export default function SettingsPage() {
                     ? "bg-emerald-muted text-emerald"
                     : isWalletConnected
                       ? "bg-gold-muted text-gold"
-                      : "bg-bg-elevated text-text-muted border border-border-default"
+                      : "bg-surface-2 text-text-muted border border-border-default"
                 }`}
               >
                 {isAuthenticated
@@ -539,7 +539,7 @@ export default function SettingsPage() {
             ].map((item) => (
               <li
                 key={item.label}
-                className="flex items-start gap-3 rounded-xl border border-border-default bg-bg-elevated px-4 py-3"
+                className="flex items-start gap-3 rounded-xl border border-border-default bg-surface-2 px-4 py-3"
               >
                 <span className="mt-0.5 shrink-0 text-gold">{item.icon}</span>
                 <div>

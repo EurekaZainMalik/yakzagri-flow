@@ -12,7 +12,7 @@ interface VaultSidebarProps {
 
 export function VaultSidebar({ trade }: VaultSidebarProps) {
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       <p className="text-xs font-semibold tracking-widest text-text-muted mb-1 uppercase">
         {translateCopy("ui.vault_amount_locked_39aaa41")}
       </p>
@@ -71,7 +71,7 @@ export function VaultSidebar({ trade }: VaultSidebarProps) {
       {/* Dispute help */}
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-border-default">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-elevated border border-border-default flex items-center justify-center">
+          <div className="w-7 h-7 rounded-full bg-surface-2 border border-border-default flex items-center justify-center">
             <svg
               className="w-3.5 h-3.5 text-text-secondary"
               viewBox="0 0 16 16"

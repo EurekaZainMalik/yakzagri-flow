@@ -82,7 +82,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} font-sans bg-primary text-text-primary antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} font-sans bg-surface-0 text-text-primary antialiased`}
       >
         <LocaleProvider>
           <ThemeProvider>

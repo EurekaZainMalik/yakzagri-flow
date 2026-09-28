@@ -57,7 +57,7 @@ export function Toast({
 
   // Type-specific colors using our tailwind tokens
   const typeClasses = {
-    success: "bg-bg-elevated/95 border border-status-success/30 text-text-primary",
+    success: "bg-surface-2/95 border border-status-success/30 text-text-primary",
     error: "bg-status-danger/10 border border-status-danger/40 text-text-primary",
     warning: "bg-status-warning/10 border border-status-warning/40 text-text-primary",
     info: "bg-status-info/10 border border-status-info/40 text-text-primary",

@@ -78,6 +78,9 @@ jobs:
         if: needs.changes.outputs.frontend == 'true'
         run: pnpm lint
 
+      - name: Design token names
+        run: node scripts/check-token-names.mjs
+
       - name: Type check
         if: needs.changes.outputs.frontend == 'true'
         run: npx tsc --noEmit

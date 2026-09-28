@@ -23,7 +23,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
 
   const variantStyles = {
     primary: "bg-gold text-text-inverse hover:bg-gold-hover",
-    secondary: "bg-bg-elevated text-text-primary border border-border-default hover:border-border-hover",
+    secondary: "bg-surface-2 text-text-primary border border-border-default hover:border-border-hover",
   };
 
   const sizeStyles = {

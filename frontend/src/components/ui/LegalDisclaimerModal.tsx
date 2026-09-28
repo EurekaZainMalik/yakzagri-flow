@@ -91,7 +91,7 @@ export function LegalDisclaimerModal({
         <ModalFooter className="sm:justify-stretch sm:[&>*]:flex-1">
           <button
             onClick={onDecline}
-            className="flex-1 px-4 py-2 rounded-lg border border-border-default text-secondary hover:bg-elevated transition-colors"
+            className="flex-1 px-4 py-2 rounded-lg border border-border-default text-secondary hover:bg-surface-2 transition-colors"
           >
             {translateCopy("ui.decline_b59cf9e")}
           </button>

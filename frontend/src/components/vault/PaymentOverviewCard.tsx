@@ -68,7 +68,7 @@ export function PaymentOverviewCard({
       className="h-full"
     >
       <div className="flex items-center justify-end -mt-8 mb-5">
-        <div className="flex items-center gap-1 bg-bg-elevated rounded-full p-1">
+        <div className="flex items-center gap-1 bg-surface-2 rounded-full p-1">
           {(["cNGN", "NGN"] as const).map((c) => (
             <button
               key={c}

@@ -76,7 +76,7 @@ export default function DashboardPage() {
   if (!isAuthenticated) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-6 text-center space-y-6">
-        <div className="w-16 h-16 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center mb-4">
+        <div className="w-16 h-16 rounded-full bg-surface-2 border border-border-default flex items-center justify-center mb-4">
           <AlertCircle className="w-8 h-8 text-gold" />
         </div>
         <h1 className="text-2xl font-bold text-text-primary">{translateCopy("ui.connect_wallet_234d7c8")}</h1>
@@ -111,7 +111,7 @@ export default function DashboardPage() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-border-default bg-bg-card p-5 space-y-4">
+        <div className="rounded-xl border border-border-default bg-surface-1 p-5 space-y-4">
           <div className="flex justify-between items-end">
             <Skeleton className="h-6 w-36" />
             <Skeleton className="h-4 w-14" />
@@ -129,7 +129,7 @@ export default function DashboardPage() {
           <p className="text-status-danger">{error}</p>
           <button 
             onClick={() => window.location.reload()} 
-            className="mt-4 px-4 py-2 text-sm font-medium bg-bg-elevated hover:bg-bg-card rounded-md border border-border-default transition-colors"
+            className="mt-4 px-4 py-2 text-sm font-medium bg-surface-2 hover:bg-surface-1 rounded-md border border-border-default transition-colors"
           >
             {translateCopy("ui.try_again_cef2fe0")}
           </button>
@@ -219,8 +219,8 @@ export default function DashboardPage() {
         </div>
         
         {recentTrades.length === 0 ? (
-          <div className="bg-bg-card border border-border-default rounded-xl p-8 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center mb-3">
+          <div className="bg-surface-1 border border-border-default rounded-xl p-8 text-center flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full bg-surface-2 border border-border-default flex items-center justify-center mb-3">
               <Activity className="w-6 h-6 text-text-muted" />
             </div>
             <p className="text-text-primary font-medium">{translateCopy("ui.no_recent_trades_found_3a3f178")}</p>
@@ -229,16 +229,16 @@ export default function DashboardPage() {
             </p>
             <Link
               href="/trades/create"
-              className="px-4 py-2 bg-bg-elevated border border-border-default text-text-primary text-sm font-medium rounded-lg hover:bg-bg-input transition-colors"
+              className="px-4 py-2 bg-surface-2 border border-border-default text-text-primary text-sm font-medium rounded-lg hover:bg-bg-input transition-colors"
             >
               {translateCopy("ui.start_trading_e00d57a")}
             </Link>
           </div>
         ) : (
-          <div className="bg-bg-card border border-border-default rounded-xl overflow-hidden">
+          <div className="bg-surface-1 border border-border-default rounded-xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
-                <thead className="text-xs text-text-muted uppercase bg-bg-elevated/50 border-b border-border-default">
+                <thead className="text-xs text-text-muted uppercase bg-surface-2/50 border-b border-border-default">
                   <tr>
                     <th scope="col" className="px-6 py-4 font-medium">{translateCopy("ui.trade_id_153d513")}</th>
                     <th scope="col" className="px-6 py-4 font-medium">{translateCopy("ui.counterparty_97b2be4")}</th>
@@ -252,7 +252,7 @@ export default function DashboardPage() {
                     <tr 
                       key={trade.tradeId} 
                       className={`
-                        border-b border-border-default hover:bg-bg-elevated/40 transition-colors
+                        border-b border-border-default hover:bg-surface-2/40 transition-colors
                         ${idx === recentTrades.length - 1 ? 'border-b-0' : ''}
                       `}
                     >
@@ -270,7 +270,7 @@ export default function DashboardPage() {
                       <td className="px-6 py-4">
                         <span className={`px-2.5 py-1 text-xs font-medium rounded-full capitalize
                           ${trade.status === 'active' ? 'bg-status-success/20 text-status-success border border-status-success/30' : 
-                            trade.status === 'completed' ? 'bg-bg-elevated text-text-secondary border border-border-default' :
+                            trade.status === 'completed' ? 'bg-surface-2 text-text-secondary border border-border-default' :
                             trade.status === 'pending' ? 'bg-status-warning/20 text-status-warning border border-status-warning/30' :
                             'bg-status-danger/20 text-status-danger border border-status-danger/30'
                           }

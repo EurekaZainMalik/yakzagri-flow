@@ -110,7 +110,7 @@ function DefaultFallback({
       </div>
 
       {/* Correlation ID */}
-      <div className="w-full rounded-lg bg-bg-elevated border border-border-default px-4 py-3 flex flex-col gap-1">
+      <div className="w-full rounded-lg bg-surface-2 border border-border-default px-4 py-3 flex flex-col gap-1">
         <span className="text-xs font-medium text-text-muted uppercase tracking-wider">
           {translateCopy("ui.error_reference_eda2378")}
         </span>
@@ -154,14 +154,14 @@ function DefaultFallback({
           type="button"
           onClick={onReset}
           data-testid="retry-button"
-          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold bg-accent-gold text-text-inverse hover:bg-accent-gold-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
+          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold bg-accent-gold text-text-inverse hover:bg-accent-gold-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-surface-0"
         >
           {translateCopy("wallet.rejectedCta")}
         </button>
         <a
           href={backHref}
           data-testid="back-to-dashboard"
-          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold text-center bg-bg-elevated border border-border-default text-text-primary hover:bg-bg-elevated/80 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
+          className="w-full sm:w-auto flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold text-center bg-surface-2 border border-border-default text-text-primary hover:bg-surface-2/80 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-surface-0"
         >
           {backLabel}
         </a>

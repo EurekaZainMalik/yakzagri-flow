@@ -67,7 +67,7 @@ const Avatar: React.FC<AvatarProps> = ({
       ) : (
         /* Fallback */
         <div
-          className={`w-full h-full bg-elevated text-text-secondary flex items-center justify-center font-medium ${textSizeClass}`}
+          className={`w-full h-full bg-surface-2 text-text-secondary flex items-center justify-center font-medium ${textSizeClass}`}
           role="img"
           aria-label={alt}
           title={alt}
@@ -79,7 +79,7 @@ const Avatar: React.FC<AvatarProps> = ({
       {/* Verified badge */}
       {verified && (
         <div
-          className={`absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 rounded-full bg-bg-primary border border-bg-primary flex items-center justify-center ${badgeSizeClass}`}
+          className={`absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 rounded-full bg-surface-0 border border-surface-0 flex items-center justify-center ${badgeSizeClass}`}
           aria-label={translateCopy("ui.verified_aed3b8c")}
           title={translateCopy("ui.verified_aed3b8c")}
         >
@@ -103,7 +103,7 @@ const Avatar: React.FC<AvatarProps> = ({
       {/* Online indicator */}
       {online && !verified && (
         <div
-          className={`absolute bottom-0 left-0 translate-x-[-25%] translate-y-[25%] rounded-full bg-emerald border-2 border-bg-primary ${badgeSizeClass}`}
+          className={`absolute bottom-0 left-0 translate-x-[-25%] translate-y-[25%] rounded-full bg-emerald border-2 border-surface-0 ${badgeSizeClass}`}
           aria-label={translateCopy("ui.online_c3e839d")}
           title={translateCopy("ui.online_c3e839d")}
         />

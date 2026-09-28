@@ -36,7 +36,7 @@ export default function IconDevPage() {
   }
 
   return (
-    <div className="min-h-screen bg-primary p-10">
+    <div className="min-h-screen bg-surface-0 p-10">
       <h1 className="text-2xl font-bold text-gold mb-2">Icon Component</h1>
       <p className="text-text-secondary text-sm mb-8">
         Sizes: xs=12px · sm=16px · md=20px · lg=24px
@@ -63,21 +63,21 @@ export default function IconDevPage() {
           Step Indicator (Multi-step flow)
         </h2>
         <div className="space-y-16">
-          <div className="bg-bg-card p-8 rounded-xl border border-border-default">
+          <div className="bg-surface-1 p-8 rounded-xl border border-border-default">
             <p className="text-xs text-text-muted mb-6">
               Current Step: 0 (Initial)
             </p>
             <StepIndicator steps={STEPS} currentStep={0} />
           </div>
 
-          <div className="bg-bg-card p-8 rounded-xl border border-border-default">
+          <div className="bg-surface-1 p-8 rounded-xl border border-border-default">
             <p className="text-xs text-text-muted mb-6">
               Current Step: 1 (In Progress)
             </p>
             <StepIndicator steps={STEPS} currentStep={1} />
           </div>
 
-          <div className="bg-bg-card p-8 rounded-xl border border-border-default">
+          <div className="bg-surface-1 p-8 rounded-xl border border-border-default">
             <p className="text-xs text-text-muted mb-6">
               Completed Steps: [0, 1], Current Step: 2
             </p>
@@ -88,7 +88,7 @@ export default function IconDevPage() {
             />
           </div>
 
-          <div className="bg-bg-card p-8 rounded-xl border border-border-default">
+          <div className="bg-surface-1 p-8 rounded-xl border border-border-default">
             <p className="text-xs text-text-muted mb-6">
               All Completed (Step 3 reached)
             </p>
@@ -126,7 +126,7 @@ export default function IconDevPage() {
           Accessible icon-only button
         </h2>
         <button
-          className="w-9 h-9 rounded-lg bg-elevated border border-border-default flex items-center justify-center hover:border-border-hover transition-all"
+          className="w-9 h-9 rounded-lg bg-surface-2 border border-border-default flex items-center justify-center hover:border-border-hover transition-all"
           aria-label="Open notifications"
         >
           <Icon name="bell" size="sm" aria-label="Open notifications" />
@@ -142,7 +142,7 @@ export default function IconDevPage() {
           {SAMPLE_ICONS.map((n) => (
             <div
               key={n}
-              className="flex flex-col items-center gap-2 bg-card border border-border-default rounded-lg p-3"
+              className="flex flex-col items-center gap-2 bg-surface-1 border border-border-default rounded-lg p-3"
             >
               <Icon name={n} size="sm" className="text-text-primary" />
               <span className="text-xs text-text-muted font-mono">{n}</span>

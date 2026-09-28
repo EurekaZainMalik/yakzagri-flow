@@ -151,7 +151,7 @@ const EVENT_ICONS: Record<TimelineEvent["type"], React.ReactNode> = {
 const EVENT_STATUS_STYLES: Record<string, string> = {
   completed: "bg-emerald text-text-inverse",
   current: "bg-status-warning text-text-inverse ring-4 ring-status-warning/20",
-  pending: "bg-elevated text-text-muted border border-border-default",
+  pending: "bg-surface-2 text-text-muted border border-border-default",
 };
 
 /**
@@ -186,7 +186,7 @@ export function TradeTimeline({ events }: TradeTimelineProps) {
   const mergedEvents = mergeEvents(events);
 
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       <div className="flex items-center gap-2 mb-5">
         <svg className="w-4 h-4 text-gold" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="M2 4l6-2 6 2v7l-6 2-6-2V4z" />
@@ -251,7 +251,7 @@ export function TradeTimeline({ events }: TradeTimelineProps) {
 
                 {/* Live tracking card */}
                 {event.tracking && (
-                  <div className="mt-3 flex items-center gap-3 bg-elevated rounded-lg p-3 border border-border-default">
+                  <div className="mt-3 flex items-center gap-3 bg-surface-2 rounded-lg p-3 border border-border-default">
                     <div className="w-12 h-12 rounded-md bg-teal/10 border border-teal/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
                       {event.tracking.imageUrl ? (
                         /* eslint-disable-next-line @next/next/no-img-element */
@@ -284,7 +284,7 @@ export function TradeTimeline({ events }: TradeTimelineProps) {
 
                   {/* Live tracking card */}
                   {event.tracking && (
-                    <div className="mt-3 flex items-center gap-3 bg-elevated rounded-lg p-3 border border-border-default">
+                    <div className="mt-3 flex items-center gap-3 bg-surface-2 rounded-lg p-3 border border-border-default">
                       <div className="w-12 h-12 rounded-md bg-teal/10 border border-teal/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
                         {event.tracking.imageUrl ? (
                           /* eslint-disable-next-line @next/next/no-img-element */

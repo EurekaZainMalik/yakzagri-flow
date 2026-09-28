@@ -437,7 +437,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
                     setActiveGatewayIndex(0);
                     setVideoLoadState("loading");
                   }}
-                  className="mt-2 px-4 py-2 bg-bg-elevated border border-border-default text-text-primary text-sm rounded-md hover:bg-bg-input transition-colors"
+                  className="mt-2 px-4 py-2 bg-surface-2 border border-border-default text-text-primary text-sm rounded-md hover:bg-bg-input transition-colors"
                 >
                   {translateCopy("ui.retry_from_first_gateway_bb038ef")}
                 </button>
@@ -518,7 +518,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
 
         {/* Right: Resolution Panel */}
         <div className="lg:col-span-5">
-          <div className="bg-bg-card rounded-xl shadow-card p-5 space-y-4">
+          <div className="bg-surface-1 rounded-xl shadow-card p-5 space-y-4">
             <div>
               <h3 className="text-lg font-semibold text-text-primary">
                 {translateCopy("ui.resolve_dispute_a495c38")}
@@ -528,7 +528,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
               </p>
             </div>
 
-            <div className="rounded-md border border-border-default bg-bg-elevated p-3">
+            <div className="rounded-md border border-border-default bg-surface-2 p-3">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-secondary">
                 {translateCopy("ui.connected_wallet_0563ce9")}
               </p>
@@ -649,7 +649,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
             if (e.target === e.currentTarget) closeModal();
           }}
         >
-          <div className="bg-bg-card rounded-t-2xl sm:rounded-2xl shadow-lg w-full max-w-md p-4 sm:p-6 space-y-4 animate-slide-up sm:animate-none">
+          <div className="bg-surface-1 rounded-t-2xl sm:rounded-2xl shadow-lg w-full max-w-md p-4 sm:p-6 space-y-4 animate-slide-up sm:animate-none">
             <h2
               id="modal-title"
               className="text-lg sm:text-xl font-bold text-text-primary"
@@ -657,7 +657,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
               {translateCopy("ui.confirm_resolution_1c8af18")}
             </h2>
 
-            <div className="border border-border-default rounded-lg bg-bg-elevated p-4 space-y-3">
+            <div className="border border-border-default rounded-lg bg-surface-2 p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium text-text-secondary">
                   {translateCopy("ui.trade_id_b32a8bb")}
@@ -704,7 +704,7 @@ export default function MediatorPanelClient({ disputeId }: Props) {
               <button
                 onClick={closeModal}
                 disabled={isSubmittingTx}
-                className="px-3 sm:px-4 py-2.5 border border-border-default text-text-primary text-sm font-medium rounded-md hover:bg-bg-elevated disabled:opacity-50 transition"
+                className="px-3 sm:px-4 py-2.5 border border-border-default text-text-primary text-sm font-medium rounded-md hover:bg-surface-2 disabled:opacity-50 transition"
                 aria-label={translateCopy("ui.cancel_resolution_4acad72")}
               >
                 {translateCopy("common.cancel")}

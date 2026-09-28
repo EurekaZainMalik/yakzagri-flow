@@ -344,7 +344,7 @@ export function VideoUploadCard({
           border-2 border-dashed border-border-default
           rounded-xl p-6 flex flex-col items-center justify-center gap-3
           cursor-pointer
-          hover:border-border-hover hover:bg-bg-elevated
+          hover:border-border-hover hover:bg-surface-2
           focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2
           transition-colors duration-200
           min-h-[140px]
@@ -376,7 +376,7 @@ export function VideoUploadCard({
         aria-label={translateCopy("ui.choose_proof_video_file_6e791c5")}
         aria-hidden={false}
         tabIndex={-1}
-        className="hidden file:rounded-full file:bg-elevated file:text-gold"
+        className="hidden file:rounded-full file:bg-surface-2 file:text-gold"
         onChange={handleChange}
       />
 
@@ -389,7 +389,7 @@ export function VideoUploadCard({
             disabled={uploading}
             className="
               flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-semibold
-              bg-bg-elevated text-gold hover:bg-bg-elevated/80
+              bg-surface-2 text-gold hover:bg-surface-2/80
               disabled:opacity-40 disabled:cursor-not-allowed
               focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2
               transition-colors duration-200
@@ -428,7 +428,7 @@ export function VideoUploadCard({
           disabled={uploading}
           className="
             mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold
-            bg-bg-elevated text-gold hover:bg-bg-elevated/80
+            bg-surface-2 text-gold hover:bg-surface-2/80
             disabled:opacity-40 disabled:cursor-not-allowed
             focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2
             transition-colors duration-200
@@ -445,7 +445,7 @@ export function VideoUploadCard({
             <span>{translateCopy("ui.uploading_to_ipfs_436f33a")}</span>
             <span>{progress}%</span>
           </div>
-          <div className="w-full bg-bg-elevated rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-surface-2 rounded-full h-1.5 overflow-hidden">
             <div
               className="h-full bg-gold rounded-full transition-all duration-200"
               style={{ width: `${progress}%` }}
@@ -461,7 +461,7 @@ export function VideoUploadCard({
 
       {/* IPFS hash link */}
       {ipfsHash && !uploading && (
-        <div className="mt-4 flex items-center gap-2 bg-bg-elevated rounded-lg px-3 py-2">
+        <div className="mt-4 flex items-center gap-2 bg-surface-2 rounded-lg px-3 py-2">
           <span className="text-xs text-text-muted truncate flex-1">
             {ipfsHash}
           </span>
@@ -503,7 +503,7 @@ export function VideoUploadCard({
         <button
           type="button"
           onClick={cancelUpload}
-          className="mt-3 w-full rounded-lg border border-border-default bg-bg-elevated px-3 py-2 text-xs font-medium text-text-secondary hover:text-text-primary transition-colors"
+          className="mt-3 w-full rounded-lg border border-border-default bg-surface-2 px-3 py-2 text-xs font-medium text-text-secondary hover:text-text-primary transition-colors"
         >
           Cancel upload
         </button>

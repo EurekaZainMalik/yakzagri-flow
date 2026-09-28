@@ -141,7 +141,7 @@ export default function AdminAuditHistoryPage() {
           <div className="text-center py-12 text-text-secondary">{translateCopy("ui.no_admin_actions_recorded_yet_98d002a")}</div>
         }
         renderItem={(entry) => (
-          <div className="p-6 bg-bg-elevated rounded-lg border border-border-default mb-4">
+          <div className="p-6 bg-surface-2 rounded-lg border border-border-default mb-4">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-2">

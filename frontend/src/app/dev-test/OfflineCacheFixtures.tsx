@@ -62,7 +62,7 @@ export function OfflineCacheFixtures() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {/* Cache controls */}
-        <div className="bg-bg-card border border-border-default rounded-xl p-6 flex flex-col gap-4">
+        <div className="bg-surface-1 border border-border-default rounded-xl p-6 flex flex-col gap-4">
           <h3 className="text-sm font-semibold text-text-primary">Cache controls</h3>
           <div className="flex flex-wrap gap-3">
             <button
@@ -75,7 +75,7 @@ export function OfflineCacheFixtures() {
             <button
               type="button"
               onClick={handleRead}
-              className="rounded-lg px-4 py-2 text-sm font-medium bg-bg-elevated border border-border-default text-text-primary hover:bg-bg-elevated/80 transition-colors"
+              className="rounded-lg px-4 py-2 text-sm font-medium bg-surface-2 border border-border-default text-text-primary hover:bg-surface-2/80 transition-colors"
             >
               Read entry
             </button>
@@ -87,7 +87,7 @@ export function OfflineCacheFixtures() {
               Invalidate
             </button>
           </div>
-          <code className="text-xs font-mono text-accent-teal bg-bg-elevated rounded px-3 py-2">
+          <code className="text-xs font-mono text-accent-teal bg-surface-2 rounded px-3 py-2">
             {readResult}
           </code>
           <p className="text-xs text-text-muted">
@@ -97,7 +97,7 @@ export function OfflineCacheFixtures() {
         </div>
 
         {/* StalenessIndicator states */}
-        <div className="bg-bg-card border border-border-default rounded-xl p-6 flex flex-col gap-4">
+        <div className="bg-surface-1 border border-border-default rounded-xl p-6 flex flex-col gap-4">
           <h3 className="text-sm font-semibold text-text-primary">
             StalenessIndicator — all states
           </h3>

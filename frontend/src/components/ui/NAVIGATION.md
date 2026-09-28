@@ -515,13 +515,13 @@ Navigation components use the application's design tokens:
 - `text-text-secondary` - Inactive items
 - `text-text-muted` - Separators and hints
 - `border-border-default` - Borders
-- `bg-card` - Background for action buttons
+- `bg-surface-1` - Background for action buttons
 - `gold` - Admin action highlights
 - `status-danger` - Error states
 - `status-success` - Valid states
 
 **Currency input specific:**
-- Asset badge: `bg-bg-primary` with `text-text-secondary`
+- Asset badge: `bg-surface-0` with `text-text-secondary`
 - Error state: `border-status-danger` with `bg-status-danger/5`
 - Normal state: `border-border-default` with focus on `gold`
 

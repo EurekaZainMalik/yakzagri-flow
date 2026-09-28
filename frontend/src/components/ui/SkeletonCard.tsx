@@ -10,7 +10,7 @@ type SkeletonCardProps = {
 export function SkeletonCard({ className, lines = 3 }: SkeletonCardProps) {
   return (
     <div
-      className={`rounded-xl border border-border-default bg-card p-5 ${className ?? ""}`}
+      className={`rounded-xl border border-border-default bg-surface-1 p-5 ${className ?? ""}`}
       aria-busy="true"
       aria-label={translateCopy("ui.loading_content_7e2a198")}
     >

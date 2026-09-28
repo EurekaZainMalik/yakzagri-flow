@@ -93,7 +93,7 @@ export function VideoUploadCard({ onUpload }: VideoUploadCardProps) {
           border-2 border-dashed border-border-default
           rounded-xl p-6 flex flex-col items-center justify-center gap-3
           cursor-pointer
-          hover:border-border-hover hover:bg-bg-elevated
+          hover:border-border-hover hover:bg-surface-2
           transition-colors duration-200
           min-h-[140px]
         "
@@ -121,7 +121,7 @@ export function VideoUploadCard({ onUpload }: VideoUploadCardProps) {
         ref={inputRef}
         type="file"
         accept="video/mp4,video/webm"
-        className="hidden file:rounded-full file:bg-elevated file:text-gold"
+        className="hidden file:rounded-full file:bg-surface-2 file:text-gold"
         onChange={handleChange}
       />
 
@@ -132,7 +132,7 @@ export function VideoUploadCard({ onUpload }: VideoUploadCardProps) {
             <span>{translateCopy("ui.uploading_to_ipfs_436f33a")}</span>
             <span>{progress}%</span>
           </div>
-          <div className="w-full bg-bg-elevated rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-surface-2 rounded-full h-1.5 overflow-hidden">
             <div
               className="h-full bg-gold rounded-full transition-all duration-200"
               style={{ width: `${progress}%` }}
@@ -148,7 +148,7 @@ export function VideoUploadCard({ onUpload }: VideoUploadCardProps) {
 
       {/* IPFS hash link */}
       {ipfsHash && !uploading && (
-        <div className="mt-4 flex items-center gap-2 bg-bg-elevated rounded-lg px-3 py-2">
+        <div className="mt-4 flex items-center gap-2 bg-surface-2 rounded-lg px-3 py-2">
           <span className="text-xs text-text-muted truncate flex-1">
             {ipfsHash}
           </span>

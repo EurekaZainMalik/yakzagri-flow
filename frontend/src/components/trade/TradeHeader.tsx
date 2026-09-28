@@ -30,7 +30,7 @@ export function TradeHeader({ trade, onConfirmDelivery, confirmingDelivery = fal
     STATUS_STYLES[trade.status] ?? STATUS_STYLES["DRAFT"];
 
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-text-muted mb-4">
         <span className="hover:text-text-secondary cursor-pointer transition-colors">

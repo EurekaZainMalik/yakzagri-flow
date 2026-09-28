@@ -31,7 +31,7 @@ export function TradeDetailPanel({
   actionSuccess,
 }: TradeDetailPanelProps) {
   return (
-    <div className="min-h-screen bg-primary pb-28">
+    <div className="min-h-screen bg-surface-0 pb-28">
       {/* Page grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto p-6">
         {/* ── Left column (main) ── */}

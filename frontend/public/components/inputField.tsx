@@ -46,12 +46,12 @@ export function InputField({
             <div
                 className={clsx(
                     "relative flex items-center rounded-md",
-                    "bg-input border border-border-default",
+                    "bg-bg-input border border-border-default",
                     "focus-within:border-border-focus",
                     "transition-all duration-150",
 
                     error && "border-status-danger",
-                    disabled && "opacity-50 cursor-not-allowed bg-card",
+                    disabled && "opacity-50 cursor-not-allowed bg-surface-1",
                 )}
             >
                 {leftSlot && (
