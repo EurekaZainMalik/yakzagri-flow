@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getApiBaseUrl, getStellarRpcUrl } from "@/lib/api/env";
 
 /**
  * Origins allowed to be embedded as frames and connected to (wallet providers).
@@ -52,32 +53,68 @@ function buildCsp(nonce: string): string {
     // inline <style> tags at runtime.
     "style-src": ["'self'", "'unsafe-inline'"],
 
-function buildCsp(nonce: string): string {
-  const directives: Record<string, string> = {
-    "default-src": "'self'",
-    "script-src": `'self' 'nonce-${nonce}' 'strict-dynamic' https:`,
-    "style-src": "'self' 'unsafe-inline'",
-    "img-src": "'self' data: blob: https:",
-    "media-src": "'self' blob:",
-    "font-src": "'self' data:",
+    // Images and recorded proof videos may use the configured IPFS gateways.
+    "img-src": ["'self'", "data:", "blob:", ...IPFS_MEDIA_ORIGINS],
+    "media-src": ["'self'", "blob:", ...IPFS_MEDIA_ORIGINS],
+    "font-src": ["'self'"],
     "connect-src": buildConnectSrc(),
     "frame-src": buildFrameSrc(),
-    "object-src": "'none'",
-    "base-uri": "'self'",
-    "form-action": "'self'",
-    "frame-ancestors": "'none'",
-    "upgrade-insecure-requests": "",
-    "report-uri": "/api/csp-report",
+    "worker-src": ["'self'", "blob:"],
+    "object-src": ["'none'"],
+    "base-uri": ["'self'"],
+    "form-action": ["'self'"],
+    "frame-ancestors": ["'none'"],
+    "upgrade-insecure-requests": [],
+    "report-to": ["csp-endpoint"],
+    "report-uri": ["/api/csp-report"],
   };
 
   return Object.entries(directives)
-    .map(([key, values]) => `${key} ${values.join(" ")}`)
+    .map(([key, values]) => `${key} ${values.join(" ")}`.trim())
     .join("; ");
 }
 
+function buildConnectSrc(): string[] {
+  const sources = new Set([
+    "'self'",
+    ...WALLET_FRAME_ALLOWLIST,
+    ...IPFS_MEDIA_ORIGINS,
+  ]);
+
+  for (const raw of [getApiBaseUrl(), getStellarRpcUrl()]) {
+    try {
+      sources.add(new URL(raw).origin);
+    } catch {
+      // Ignore relative or unparsable endpoint values.
+    }
+  }
+
+  for (const source of Array.from(sources)) {
+    if (source.startsWith("https://")) {
+      sources.add(`wss://${source.slice("https://".length)}`);
+    } else if (source.startsWith("http://")) {
+      sources.add(`ws://${source.slice("http://".length)}`);
+    }
+  }
+
+  return Array.from(sources);
+}
+
+function buildFrameSrc(): string[] {
+  const configuredOrigins = (process.env.WALLET_FRAME_ALLOWLIST ?? "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+  return ["'self'", ...WALLET_FRAME_ALLOWLIST, ...configuredOrigins];
+}
+
 export function middleware(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const nonce = Buffer.from(crypto.randomUUID().replace(/-/g, "")).toString("base64");
   const csp = buildCsp(nonce);
+  const enforce = process.env.CSP_ENFORCE === "true";
+  const headerName = enforce
+    ? "Content-Security-Policy"
+    : "Content-Security-Policy-Report-Only";
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
@@ -86,6 +123,7 @@ export function middleware(request: NextRequest) {
     request: { headers: requestHeaders },
   });
 
+  response.headers.set("Reporting-Endpoints", 'csp-endpoint="/api/csp-report"');
   response.headers.set(headerName, csp);
   response.headers.set("x-nonce", nonce);
 
