@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getApiBaseUrl, getStellarRpcUrl } from "@/lib/api/env";
 
 /**
  * Origins allowed to be embedded as frames and connected to (wallet providers).
@@ -70,9 +71,47 @@ export function buildCsp(nonce: string): string {
     .join("; ");
 }
 
+function buildConnectSrc(): string[] {
+  const sources = new Set([
+    "'self'",
+    ...WALLET_FRAME_ALLOWLIST,
+    ...IPFS_MEDIA_ORIGINS,
+  ]);
+
+  for (const raw of [getApiBaseUrl(), getStellarRpcUrl()]) {
+    try {
+      sources.add(new URL(raw).origin);
+    } catch {
+      // Ignore relative or unparsable endpoint values.
+    }
+  }
+
+  for (const source of Array.from(sources)) {
+    if (source.startsWith("https://")) {
+      sources.add(`wss://${source.slice("https://".length)}`);
+    } else if (source.startsWith("http://")) {
+      sources.add(`ws://${source.slice("http://".length)}`);
+    }
+  }
+
+  return Array.from(sources);
+}
+
+function buildFrameSrc(): string[] {
+  const configuredOrigins = (process.env.WALLET_FRAME_ALLOWLIST ?? "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+  return ["'self'", ...WALLET_FRAME_ALLOWLIST, ...configuredOrigins];
+}
+
 export function middleware(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const nonce = Buffer.from(crypto.randomUUID().replace(/-/g, "")).toString("base64");
   const csp = buildCsp(nonce);
+  const enforce = process.env.CSP_ENFORCE === "true";
+  const headerName = enforce
+    ? "Content-Security-Policy"
+    : "Content-Security-Policy-Report-Only";
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
