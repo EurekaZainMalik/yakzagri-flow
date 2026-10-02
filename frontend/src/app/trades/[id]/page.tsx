@@ -25,6 +25,7 @@ import {
   ModalFooter,
 } from "@/components/ui/Modal";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { toBadgeStatus } from "@/lib/trades/status";
 
 function formatDate(dateString: string) {
   return formatDateTime(dateString);
@@ -246,7 +247,8 @@ export default function TradeDetailPage() {
                 <p className="mt-1 text-xs text-text-muted">{translateCopy("ui.updated_702cad2")}{" "}{formatDate(trade.updatedAt)}</p>
               </div>
               <div className="flex flex-col items-start sm:items-end gap-2">
-                <StatusBadge status={trade.status} size="sm" showIcon={false} />
+                {/* Shared badge: same status mapping as the trades list */}
+                <StatusBadge status={toBadgeStatus(trade.status)} size="sm" showIcon={false} />
                 {role !== "observer" && (
                   <span className="text-xs text-text-muted capitalize">{translateCopy("ui.your_role_83a4169")}{" "}{role}</span>
                 )}

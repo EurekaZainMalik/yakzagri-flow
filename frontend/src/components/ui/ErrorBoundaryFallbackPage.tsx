@@ -6,11 +6,11 @@ import { t as translateCopy } from "@/lib/i18n";
  * Shared full-page error fallback.
  *
  * Rendered by:
- *   - src/app/error.tsx  (Next.js route-segment boundary)
- *   - ErrorBoundary default fallback (class component)
+ *   - the route-segment `error.tsx` boundaries (dashboard, trades, root)
+ *   - the `ErrorBoundary` class component's default fallback
  *
- * Accepts the minimum props needed so it can be used from both the class
- * component and the functional error.tsx page.
+ * It is the single implementation of the branded error UI: the class component
+ * used to carry a near-identical private copy, which drifted from this one.
  */
 
 interface ErrorBoundaryFallbackPageProps {
@@ -19,6 +19,16 @@ interface ErrorBoundaryFallbackPageProps {
   errorMessage?: string;
   backLabel?: string;
   backHref?: string;
+  /**
+   * Minimum height for the fallback container.
+   *
+   * Route-level `error.tsx` pages fill the whole route slot and use the full
+   * 50vh; the class-based `ErrorBoundary` renders inside an existing page
+   * shell, where the shorter 40vh keeps the surrounding layout intact.
+   *
+   * @default "min-h-[50vh]"
+   */
+  minHeightClass?: string;
 }
 
 export function ErrorBoundaryFallbackPage({
@@ -27,6 +37,7 @@ export function ErrorBoundaryFallbackPage({
   errorMessage,
   backLabel = "Back to dashboard",
   backHref = "/dashboard",
+  minHeightClass = "min-h-[50vh]",
 }: ErrorBoundaryFallbackPageProps) {
   function handleCopy() {
     navigator.clipboard.writeText(correlationId).catch(() => {/* best-effort */});
@@ -37,7 +48,7 @@ export function ErrorBoundaryFallbackPage({
       role="alert"
       aria-live="assertive"
       data-testid="error-boundary-fallback"
-      className="flex flex-col items-center justify-center min-h-[50vh] gap-6 p-8 text-center max-w-lg mx-auto"
+      className={`flex flex-col items-center justify-center ${minHeightClass} gap-6 p-8 text-center max-w-lg mx-auto`}
     >
       {/* Branded danger icon */}
       <div className="h-14 w-14 rounded-full bg-status-danger/10 flex items-center justify-center flex-shrink-0">
@@ -69,7 +80,7 @@ export function ErrorBoundaryFallbackPage({
       </div>
 
       {/* Correlation ID card */}
-      <div className="w-full rounded-lg bg-bg-elevated border border-border-default px-4 py-3 flex flex-col gap-1">
+      <div className="w-full rounded-lg bg-surface-2 border border-border-default px-4 py-3 flex flex-col gap-1">
         <span className="text-xs font-medium text-text-muted uppercase tracking-wider">
           {translateCopy("ui.error_reference_eda2378")}
         </span>
@@ -113,14 +124,14 @@ export function ErrorBoundaryFallbackPage({
           type="button"
           onClick={onRetry}
           data-testid="retry-button"
-          className="w-full sm:flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold bg-accent-gold text-text-inverse hover:bg-accent-gold-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
+          className="w-full sm:flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold bg-accent-gold text-text-inverse hover:bg-accent-gold-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-surface-0"
         >
           {translateCopy("wallet.rejectedCta")}
         </button>
         <a
           href={backHref}
           data-testid="back-to-dashboard"
-          className="w-full sm:flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold text-center bg-bg-elevated border border-border-default text-text-primary hover:bg-bg-elevated/80 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-bg-primary"
+          className="w-full sm:flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold text-center bg-surface-2 border border-border-default text-text-primary hover:bg-surface-2/80 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-surface-0"
         >
           {backLabel}
         </a>

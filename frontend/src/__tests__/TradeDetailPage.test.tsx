@@ -168,9 +168,15 @@ describe("Trade Detail — error state", () => {
 // ── Status display ─────────────────────────────────────────────────────────────
 
 describe("Trade Detail — trade status display", () => {
-  it.each(["PENDING", "FUNDED", "SETTLED", "DISPUTED", "CANCELLED"])(
-    "shows %s status badge",
-    (status) => {
+  it.each([
+    ["PENDING", "Pending"],
+    ["FUNDED", "Funds Locked"],
+    ["SETTLED", "Delivered"],
+    ["DISPUTED", "Disputed"],
+    ["CANCELLED", "Draft"],
+  ])(
+    "shows the shared status badge for %s",
+    (status, label) => {
       mockAuth(BUYER_ADDRESS);
       mockUseTradeDetail.mockReturnValue({
         trade: makeTrade(status),
@@ -179,7 +185,10 @@ describe("Trade Detail — trade status display", () => {
         refetch: jest.fn(),
       });
       render(<TradeDetailPage />);
-      expect(screen.getByText(status)).toBeInTheDocument();
+      // The badge renders the canonical label ...
+      expect(screen.getByText(label)).toBeInTheDocument();
+      // ... while the raw contract status stays visible in the state panel.
+      expect(screen.getAllByText(status.toLowerCase()).length).toBeGreaterThan(0);
     }
   );
 });
