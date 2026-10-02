@@ -63,7 +63,7 @@ function StatCard({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-border-default bg-card p-5 flex flex-col gap-1">
+    <div className="rounded-2xl border border-border-default bg-surface-1 p-5 flex flex-col gap-1">
       <p className="text-xs uppercase tracking-widest text-text-muted">
         {label}
       </p>
@@ -496,7 +496,7 @@ export default function VaultManagePage() {
   }
 
   return (
-    <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+    <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* ── Header ── */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -596,7 +596,7 @@ export default function VaultManagePage() {
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-border-default bg-card p-5 h-24 animate-pulse"
+                    className="rounded-2xl border border-border-default bg-surface-1 p-5 h-24 animate-pulse"
                   />
                 ))}
               </div>
@@ -639,7 +639,7 @@ export default function VaultManagePage() {
                   <h2 className="text-base font-semibold text-text-primary">
                     {translateCopy("ui.escrow_positions_923e8f0")}
                   </h2>
-                  <div className="flex gap-1 rounded-lg border border-border-default p-1 bg-bg-elevated">
+                  <div className="flex gap-1 rounded-lg border border-border-default p-1 bg-surface-2">
                     {(["active", "all"] as const).map((tab) => (
                       <button
                         key={tab}
@@ -664,19 +664,19 @@ export default function VaultManagePage() {
                 )}
 
                 {loading && trades.length === 0 ? (
-                  <div className="rounded-2xl border border-border-default bg-card overflow-hidden">
+                  <div className="rounded-2xl border border-border-default bg-surface-1 overflow-hidden">
                     {Array.from({ length: 4 }).map((_, i) => (
                       <div
                         key={i}
                         className="px-4 py-4 border-b border-border-default last:border-0 animate-pulse"
                       >
-                        <div className="h-4 bg-bg-elevated rounded w-3/4" />
+                        <div className="h-4 bg-surface-2 rounded w-3/4" />
                       </div>
                     ))}
                   </div>
                 ) : displayedTrades.length === 0 ? (
-                  <div className="rounded-2xl border border-border-default bg-card px-6 py-16 text-center">
-                    <div className="w-12 h-12 rounded-xl bg-bg-elevated border border-border-default flex items-center justify-center mx-auto mb-4">
+                  <div className="rounded-2xl border border-border-default bg-surface-1 px-6 py-16 text-center">
+                    <div className="w-12 h-12 rounded-xl bg-surface-2 border border-border-default flex items-center justify-center mx-auto mb-4">
                       <svg
                         className="w-6 h-6 text-text-muted"
                         viewBox="0 0 24 24"
@@ -704,9 +704,9 @@ export default function VaultManagePage() {
                     </Link>
                   </div>
                 ) : (
-                  <div className="rounded-2xl border border-border-default bg-card overflow-hidden">
+                  <div className="rounded-2xl border border-border-default bg-surface-1 overflow-hidden">
                     {/* Table header */}
-                    <div className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-4 py-3 border-b border-border-default bg-bg-elevated text-xs font-medium text-text-muted uppercase tracking-wider">
+                    <div className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-4 py-3 border-b border-border-default bg-surface-2 text-xs font-medium text-text-muted uppercase tracking-wider">
                       <span>{translateCopy("ui.trade_b0811e4")}</span>
                       <span>{translateCopy("ui.amount_43dc853")}</span>
                       <span>{translateCopy("ui.status_bae7d5b")}</span>
@@ -727,7 +727,7 @@ export default function VaultManagePage() {
                       return (
                         <div
                           key={trade.tradeId}
-                          className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 items-center px-4 py-4 border-b border-border-default last:border-0 hover:bg-bg-elevated/50 transition-colors"
+                          className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 items-center px-4 py-4 border-b border-border-default last:border-0 hover:bg-surface-2/50 transition-colors"
                         >
                           {/* Trade info */}
                           <div className="min-w-0">

@@ -66,7 +66,7 @@ const features = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary">
+    <div className="min-h-screen bg-surface-0 text-text-primary">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-hero px-6 py-20 md:py-32 lg:px-10">
         {/* Subtle radial glow behind the headline */}
@@ -107,7 +107,7 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 rounded-lg border border-border-default px-6 py-3 text-base font-semibold text-text-primary transition-colors hover:border-border-hover hover:bg-bg-card focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2"
+              className="inline-flex items-center gap-2 rounded-lg border border-border-default px-6 py-3 text-base font-semibold text-text-primary transition-colors hover:border-border-hover hover:bg-surface-1 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2"
             >
               {translateCopy("ui.open_dashboard_7ad1cae")}
             </Link>
@@ -118,7 +118,7 @@ export default function LandingPage() {
       {/* ── Stats bar ────────────────────────────────────────────────────── */}
       <section
         aria-label={translateCopy("ui.platform_statistics_5260f1a")}
-        className="border-y border-border-default bg-bg-card px-6 py-8 lg:px-10"
+        className="border-y border-border-default bg-surface-1 px-6 py-8 lg:px-10"
       >
         <dl className="mx-auto grid max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
           {stats.map((stat) => (
@@ -148,7 +148,7 @@ export default function LandingPage() {
               return (
                 <div
                   key={item.step}
-                  className="relative rounded-xl border border-border-default bg-bg-card p-6 shadow-card"
+                  className="relative rounded-xl border border-border-default bg-surface-1 p-6 shadow-card"
                 >
                   {/* Step number */}
                   <span className="text-xs font-bold tracking-widest text-text-muted">
@@ -171,7 +171,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Features ─────────────────────────────────────────────────────── */}
-      <section className="bg-bg-card px-6 py-20 lg:px-10">
+      <section className="bg-surface-1 px-6 py-20 lg:px-10">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-2xl font-bold md:text-3xl">
             {translateCopy("ui.why_amana_17f89a9")}
@@ -186,7 +186,7 @@ export default function LandingPage() {
               return (
                 <div
                   key={feature.title}
-                  className="rounded-xl border border-border-default bg-bg-primary p-6 shadow-card"
+                  className="rounded-xl border border-border-default bg-surface-0 p-6 shadow-card"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold-muted">
                     <Icon className="h-5 w-5 text-gold" />

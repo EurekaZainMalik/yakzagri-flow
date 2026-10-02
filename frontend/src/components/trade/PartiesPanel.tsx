@@ -20,7 +20,7 @@ function PartyCard({
   role: "BUYER" | "SELLER";
 }) {
   return (
-    <div className="flex-1 bg-elevated rounded-lg p-4 border border-border-default">
+    <div className="flex-1 bg-surface-2 rounded-lg p-4 border border-border-default">
       <p className="text-xs font-semibold tracking-widest text-text-muted mb-3">
         {translateCopy("ui.the_7164935")}{" "}{role}
       </p>
@@ -79,7 +79,7 @@ function PartyCard({
 
 export function PartiesPanel({ buyer, seller }: PartiesPanelProps) {
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       <h2 className="text-sm font-semibold text-text-secondary mb-4 tracking-wide uppercase">
         {translateCopy("ui.trade_parties_7194c32")}
       </h2>
@@ -89,7 +89,7 @@ export function PartiesPanel({ buyer, seller }: PartiesPanelProps) {
         {/* Connector */}
         <div className="hidden sm:flex flex-col items-center justify-center gap-1 px-2">
           <div className="w-px h-8 bg-border-default" />
-          <div className="w-6 h-6 rounded-full bg-elevated border border-border-default flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full bg-surface-2 border border-border-default flex items-center justify-center">
             <svg className="w-3 h-3 text-text-muted" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M2 6h8M6 2l4 4-4 4" />
             </svg>

@@ -20,14 +20,14 @@ function SkeletonReputationPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="bg-bg-elevated rounded-lg border border-border-default p-8 flex flex-col items-center gap-4">
+        <div className="bg-surface-2 rounded-lg border border-border-default p-8 flex flex-col items-center gap-4">
           <Skeleton className="h-32 w-32 rounded-full" />
           <Skeleton className="h-5 w-16" />
         </div>
 
         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="bg-bg-elevated rounded-lg border border-border-default p-6 space-y-2">
+            <div key={i} className="bg-surface-2 rounded-lg border border-border-default p-6 space-y-2">
               <Skeleton className="h-4 w-24" />
               <Skeleton className="h-7 w-16" />
             </div>
@@ -35,7 +35,7 @@ function SkeletonReputationPage() {
         </div>
       </div>
 
-      <div className="bg-bg-elevated rounded-lg border border-border-default">
+      <div className="bg-surface-2 rounded-lg border border-border-default">
         <div className="p-6 border-b border-border-default space-y-2">
           <Skeleton className="h-6 w-36" />
           <Skeleton className="h-4 w-64" />
@@ -135,7 +135,7 @@ export default function ReputationPage() {
   if (!isAuthenticated && !authLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-6 text-center space-y-6">
-        <div className="w-16 h-16 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-surface-2 border border-border-default flex items-center justify-center">
           <AlertCircle className="w-8 h-8 text-gold" />
         </div>
         <h2 className="text-2xl font-bold text-text-primary">{translateCopy("ui.connect_wallet_234d7c8")}</h2>
@@ -160,7 +160,7 @@ export default function ReputationPage() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-6 text-center space-y-4">
-        <div className="w-16 h-16 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-surface-2 border border-border-default flex items-center justify-center">
           <AlertCircle className="w-8 h-8 text-status-danger" />
         </div>
         <h2 className="text-xl font-semibold text-text-primary">{translateCopy("ui.failed_to_load_reputation_940a7ad")}</h2>
@@ -176,7 +176,7 @@ export default function ReputationPage() {
   if (!data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-6 text-center space-y-6">
-        <div className="w-16 h-16 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-surface-2 border border-border-default flex items-center justify-center">
           <TrendingUp className="w-8 h-8 text-text-secondary" />
         </div>
         <h2 className="text-2xl font-bold text-text-primary">{translateCopy("ui.no_reputation_data_8b0fe48")}</h2>
@@ -222,7 +222,7 @@ export default function ReputationPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="bg-bg-elevated rounded-lg border border-border-default p-8 flex flex-col items-center gap-3">
+        <div className="bg-surface-2 rounded-lg border border-border-default p-8 flex flex-col items-center gap-3">
           <RepScoreRing score={ringScore} size="xl" animated />
           <p className="text-sm text-text-secondary mt-2">{translateCopy("ui.trust_score_2c7902e")}</p>
           <p className="text-3xl font-bold text-text-primary">{data.trustScore}</p>
@@ -233,7 +233,7 @@ export default function ReputationPage() {
           {metrics.map((metric) => (
             <div
               key={metric.title}
-              className="bg-bg-elevated rounded-lg border border-border-default p-6"
+              className="bg-surface-2 rounded-lg border border-border-default p-6"
             >
               <div className="flex items-center gap-2 mb-3">
                 {metric.icon}
@@ -245,7 +245,7 @@ export default function ReputationPage() {
         </div>
       </div>
 
-      <div className="bg-bg-elevated rounded-lg border border-border-default">
+      <div className="bg-surface-2 rounded-lg border border-border-default">
         <div className="p-6 border-b border-border-default">
           <h2 className="text-xl font-semibold text-text-primary">{translateCopy("ui.trust_history_4968d5f")}</h2>
           <p className="text-sm text-text-secondary mt-1">

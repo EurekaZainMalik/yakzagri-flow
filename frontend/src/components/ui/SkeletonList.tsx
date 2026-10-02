@@ -11,7 +11,7 @@ export function SkeletonList({ rows = 4, className }: SkeletonListProps) {
       {Array.from({ length: rows }).map((_, index) => (
         <div
           key={index}
-          className="rounded-lg border border-border-default bg-card px-4 py-3"
+          className="rounded-lg border border-border-default bg-surface-1 px-4 py-3"
         >
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0 flex-1 space-y-2">

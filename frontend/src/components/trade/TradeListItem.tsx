@@ -37,7 +37,7 @@ export function TradeListItem({
 }: TradeListItemProps) {
   return (
     <div
-      className="flex items-center justify-between p-4 bg-card border border-border-default rounded-lg mb-3 hover:border-gold/30 hover:bg-elevated transition-colors group"
+      className="flex items-center justify-between p-4 bg-surface-1 border border-border-default rounded-lg mb-3 hover:border-gold/30 hover:bg-surface-2 transition-colors group"
     >
       {/* Left — commodity + meta */}
       <div className="flex flex-col gap-1 min-w-0">

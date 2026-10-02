@@ -162,7 +162,7 @@ export default function AdminStreamManagementPage() {
 
   if (authLoading) {
     return (
-      <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+      <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <LoadingState variant="card" rows={4} />
         </div>
@@ -173,7 +173,7 @@ export default function AdminStreamManagementPage() {
   // Check feature flag first
   if (!isAdminUIEnabled) {
     return (
-      <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+      <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <ErrorState
             title={translateCopy("ui.feature_not_available_7c53250")}
@@ -194,7 +194,7 @@ export default function AdminStreamManagementPage() {
 
   if (!isAuthenticated || !canAccessAdmin) {
     return (
-      <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+      <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <ErrorState
             title={translateCopy("ui.access_denied_1647b9d")}
@@ -214,7 +214,7 @@ export default function AdminStreamManagementPage() {
   }
 
   return (
-    <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+    <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
       <div className="mx-auto max-w-7xl space-y-6">
         {/* Breadcrumb */}
         <Breadcrumbs items={breadcrumbItems} />
@@ -229,7 +229,7 @@ export default function AdminStreamManagementPage() {
           </div>
           <Link
             href={`/streams/${streamId}`}
-            className="flex items-center gap-2 rounded-lg border border-border-default bg-bg-elevated px-3 py-1.5 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-card hover:text-text-primary transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-border-default bg-surface-2 px-3 py-1.5 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-surface-1 hover:text-text-primary transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M10 12l-4-4 4-4" />
@@ -253,12 +253,12 @@ export default function AdminStreamManagementPage() {
         {!loading && !error && streamData && (
           <div className="space-y-6">
             {/* Stream overview */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-xs uppercase tracking-[0.22em] text-text-secondary">
                   {translateCopy("ui.stream_overview_d1b96e9")}
                 </p>
-                <div className="rounded-full bg-bg-elevated px-3 py-1">
+                <div className="rounded-full bg-surface-2 px-3 py-1">
                   <span className="text-xs font-semibold text-text-primary">
                     {assetInfo.symbol}
                   </span>
@@ -313,7 +313,7 @@ export default function AdminStreamManagementPage() {
             )}
 
             {/* Clawback preview */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-text-secondary mb-4">
                 {translateCopy("ui.clawback_preview_e8edf9c")}
               </p>
@@ -337,7 +337,7 @@ export default function AdminStreamManagementPage() {
                 </button>
 
                 {clawbackPreview && (
-                  <div className="mt-4 rounded-lg border border-border-default bg-bg-elevated p-4 space-y-2">
+                  <div className="mt-4 rounded-lg border border-border-default bg-surface-2 p-4 space-y-2">
                     <p className="text-xs text-text-muted">{translateCopy("ui.preview_results_7707856")}</p>
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div>
@@ -371,7 +371,7 @@ export default function AdminStreamManagementPage() {
             </div>
 
             {/* Suspend stream */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-text-secondary mb-4">
                 {translateCopy("ui.suspend_stream_50822f9")}
               </p>
@@ -386,7 +386,7 @@ export default function AdminStreamManagementPage() {
                     onChange={(e) => setSuspendReason(e.target.value)}
                     placeholder={translateCopy("ui.enter_reason_for_suspension_1bf8eff")}
                     rows={3}
-                    className="w-full rounded-lg border border-border-default bg-bg-elevated px-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-gold focus:outline-none resize-none"
+                    className="w-full rounded-lg border border-border-default bg-surface-2 px-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-gold focus:outline-none resize-none"
                   />
                 </div>
                 <button
@@ -400,7 +400,7 @@ export default function AdminStreamManagementPage() {
             </div>
 
             {/* Resume stream */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-text-secondary mb-4">
                 {translateCopy("ui.resume_stream_b9c8aa5")}
               </p>
@@ -415,7 +415,7 @@ export default function AdminStreamManagementPage() {
                     onChange={(e) => setResumeNote(e.target.value)}
                     placeholder={translateCopy("ui.enter_note_for_resumption_5a0504a")}
                     rows={3}
-                    className="w-full rounded-lg border border-border-default bg-bg-elevated px-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-gold focus:outline-none resize-none"
+                    className="w-full rounded-lg border border-border-default bg-surface-2 px-4 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-gold focus:outline-none resize-none"
                   />
                 </div>
                 <button

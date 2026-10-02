@@ -226,7 +226,7 @@ describe('Avatar Component', () => {
 
   it('renders fallback with correct background color', () => {
     const { container } = render(<Avatar {...defaultProps} />);
-    const fallback = container.querySelector('.bg-elevated');
+    const fallback = container.querySelector('.bg-surface-2');
     expect(fallback).toBeInTheDocument();
   });
 
@@ -262,13 +262,13 @@ describe('Avatar Component', () => {
 
   it('renders verified badge with border', () => {
     const { container } = render(<Avatar {...defaultProps} verified={true} />);
-    const badge = container.querySelector('.border.border-bg-primary');
+    const badge = container.querySelector('.border.border-surface-0');
     expect(badge).toBeInTheDocument();
   });
 
   it('renders online indicator with border', () => {
     const { container } = render(<Avatar {...defaultProps} online={true} />);
-    const indicator = container.querySelector('.border-2.border-bg-primary');
+    const indicator = container.querySelector('.border-2.border-surface-0');
     expect(indicator).toBeInTheDocument();
   });
 });

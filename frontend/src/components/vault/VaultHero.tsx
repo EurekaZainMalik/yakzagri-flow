@@ -31,7 +31,7 @@ export function VaultHero({
         </p>
       </div>
 
-      <div className="flex items-center gap-4 bg-card border border-border-default rounded-2xl px-6 py-4">
+      <div className="flex items-center gap-4 bg-surface-1 border border-border-default rounded-2xl px-6 py-4">
         <div className="w-14 h-14 rounded-xl bg-gold-muted flex items-center justify-center">
           <Shield className="w-7 h-7 text-gold" />
         </div>

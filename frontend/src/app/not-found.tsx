@@ -25,7 +25,7 @@ import { NotFoundBackButton } from "./NotFoundBackButton";
 const LINK_BASE =
   "inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2";
 const PRIMARY_LINK = `${LINK_BASE} bg-gold text-text-inverse hover:bg-gold-hover`;
-const SECONDARY_LINK = `${LINK_BASE} border border-border-default bg-bg-elevated text-text-primary hover:border-border-hover`;
+const SECONDARY_LINK = `${LINK_BASE} border border-border-default bg-surface-2 text-text-primary hover:border-border-hover`;
 
 export default function NotFound() {
   return (
@@ -39,7 +39,7 @@ export default function NotFound() {
         <Link href="/dashboard" className="rounded-md bg-gold px-4 py-2 text-sm font-medium text-text-inverse hover:bg-gold-hover">
           {translateCopy("ui.dashboard_d87f47b")}
         </Link>
-        <Link href="/trades" className="rounded-md border border-border-default px-4 py-2 text-sm font-medium text-text-primary hover:bg-bg-elevated">
+        <Link href="/trades" className="rounded-md border border-border-default px-4 py-2 text-sm font-medium text-text-primary hover:bg-surface-2">
           {translateCopy("ui.trades_597b109")}
         </Link>
       </div>

@@ -15,7 +15,7 @@ export default function Divider({
     return (
       <div className={`relative flex items-center justify-center w-px h-full bg-border-default ${className}`}>
         {label && (
-          <span className="absolute bg-bg-primary px-2 text-xs text-text-muted">
+          <span className="absolute bg-surface-0 px-2 text-xs text-text-muted">
             {label}
           </span>
         )}
@@ -27,7 +27,7 @@ export default function Divider({
     <div className={`relative flex items-center w-full ${className}`}>
       <div className="h-px w-full bg-border-default" />
       {label && (
-        <span className="absolute left-1/2 -translate-x-1/2 bg-bg-primary px-2 text-xs text-text-muted whitespace-nowrap">
+        <span className="absolute left-1/2 -translate-x-1/2 bg-surface-0 px-2 text-xs text-text-muted whitespace-nowrap">
           {label}
         </span>
       )}

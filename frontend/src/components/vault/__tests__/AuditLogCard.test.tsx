@@ -112,7 +112,7 @@ describe('AuditLogCard Component', () => {
 
     it('applies correct background color for ledger entry', () => {
         const { container } = render(<AuditLogCard {...defaultProps} />);
-        const ledgerBg = container.querySelector('.bg-bg-elevated');
+        const ledgerBg = container.querySelector('.bg-surface-2');
         expect(ledgerBg).toBeInTheDocument();
     });
 

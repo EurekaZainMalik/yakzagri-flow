@@ -21,6 +21,12 @@ const FRONTEND_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC_DIR = join(FRONTEND_DIR, "src");
 const CONFIG = join(FRONTEND_DIR, "tailwind.config.ts");
 const CSS = join(FRONTEND_DIR, "src", "app", "globals.css");
+// The `@theme inline { --color-* }` block is emitted into the generated token
+// stylesheet, which globals.css pulls in via `@import`.
+const CSS_FILES = [
+  CSS,
+  join(FRONTEND_DIR, "src", "app", "design-tokens.generated.css"),
+];
 
 /** Tailwind utility prefixes that can carry a colour. */
 const UTILITY_PREFIXES = [
@@ -112,10 +118,12 @@ function readDefinedTokens() {
 
   // `@theme inline { --color-<token>: ... }` is the v4-side token set.
   let css = "";
-  try {
-    css = readFileSync(CSS, "utf8");
-  } catch {
-    /* globals.css is optional for this check */
+  for (const file of CSS_FILES) {
+    try {
+      css += readFileSync(file, "utf8") + "\n";
+    } catch {
+      /* the token stylesheets are optional for this check */
+    }
   }
   for (const match of css.matchAll(/--color-([A-Za-z0-9-]+)\s*:/g)) {
     defined.add(match[1]);

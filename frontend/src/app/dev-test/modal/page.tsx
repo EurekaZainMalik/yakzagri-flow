@@ -16,7 +16,7 @@ export default function ModalDevPage() {
   const modal = useModal();
 
   return (
-    <main className="min-h-screen bg-primary px-4 py-10 sm:px-8">
+    <main className="min-h-screen bg-surface-0 px-4 py-10 sm:px-8">
       <div className="mx-auto max-w-3xl space-y-6">
         <h1 className="text-2xl font-semibold text-gold">Modal System Demo</h1>
         <p className="text-sm text-secondary">
@@ -49,7 +49,7 @@ export default function ModalDevPage() {
                   </label>
                   <input
                     id="buyer-name"
-                    className="w-full rounded-lg border border-border-default bg-elevated px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-gold"
+                    className="w-full rounded-lg border border-border-default bg-surface-2 px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-gold"
                     placeholder="Enter buyer name"
                   />
                 </div>
@@ -60,7 +60,7 @@ export default function ModalDevPage() {
                   <textarea
                     id="delivery-note"
                     rows={4}
-                    className="w-full rounded-lg border border-border-default bg-elevated px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-gold"
+                    className="w-full rounded-lg border border-border-default bg-surface-2 px-3 py-2 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-gold"
                     placeholder="Attach additional delivery details"
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function ModalDevPage() {
               <button
                 type="button"
                 onClick={modal.close}
-                className="rounded-lg border border-border-default px-4 py-2 text-secondary hover:bg-elevated"
+                className="rounded-lg border border-border-default px-4 py-2 text-secondary hover:bg-surface-2"
               >
                 Cancel
               </button>

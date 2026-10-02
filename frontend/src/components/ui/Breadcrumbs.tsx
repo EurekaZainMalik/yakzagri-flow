@@ -84,7 +84,7 @@ export function Breadcrumbs({ items, className, adminAction }: BreadcrumbsProps)
       {adminAction && (
         <Link
           href={adminAction.href}
-          className="flex items-center gap-2 rounded-lg border border-border-default bg-bg-elevated px-3 py-1.5 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-card hover:text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-1"
+          className="flex items-center gap-2 rounded-lg border border-border-default bg-surface-2 px-3 py-1.5 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-surface-1 hover:text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-1"
         >
           {adminAction.icon}
           {adminAction.label}

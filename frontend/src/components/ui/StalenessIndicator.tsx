@@ -54,7 +54,7 @@ export function StalenessIndicator({
       className={clsx(
         "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-xs font-medium",
         isOffline
-          ? "bg-bg-elevated text-text-muted border border-border-default"
+          ? "bg-surface-2 text-text-muted border border-border-default"
           : "bg-status-warning/10 text-status-warning border border-status-warning/20",
         className,
       )}

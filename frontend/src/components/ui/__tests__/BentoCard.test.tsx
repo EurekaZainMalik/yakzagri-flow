@@ -66,7 +66,7 @@ describe('BentoCard Component', () => {
         const { container } = render(<BentoCard {...defaultProps} />);
         const card = container.firstChild as HTMLElement;
         expect(card).toHaveClass(
-            'bg-[#101E18F2]',
+            'bg-surface-1',
             'border',
             'border-border-default',
             'rounded-2xl',
@@ -80,6 +80,8 @@ describe('BentoCard Component', () => {
             'flex',
             'flex-col'
         );
+        // the retired arbitrary hex must not come back
+        expect(card).not.toHaveClass('bg-[#101E18F2]');
     });
 
     it('renders title with correct styling', () => {

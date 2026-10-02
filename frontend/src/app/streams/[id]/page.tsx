@@ -71,7 +71,7 @@ export default function StreamDetailPage() {
 
   if (authLoading) {
     return (
-      <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+      <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <LoadingState variant="card" rows={4} />
         </div>
@@ -81,7 +81,7 @@ export default function StreamDetailPage() {
 
   if (!isAuthenticated) {
     return (
-      <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+      <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <ErrorState
             title={translateCopy("ui.authentication_required_fbbe499")}
@@ -93,7 +93,7 @@ export default function StreamDetailPage() {
   }
 
   return (
-    <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+    <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
       <div className="mx-auto max-w-7xl space-y-6">
         {/* Breadcrumb with admin action */}
         <Breadcrumbs
@@ -134,7 +134,7 @@ export default function StreamDetailPage() {
         {!loading && !error && streamData && (
           <div className="space-y-4">
             {/* Stream ID card */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-text-secondary">
                 {translateCopy("ui.stream_id_ca9cac7")}
               </p>
@@ -145,7 +145,7 @@ export default function StreamDetailPage() {
 
             {/* Vesting information */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-2xl border border-border-default bg-card p-5">
+              <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-text-secondary">
                   {translateCopy("ui.total_vested_84ca85a")}
                 </p>
@@ -157,7 +157,7 @@ export default function StreamDetailPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-border-default bg-card p-5">
+              <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-status-success">
                   {translateCopy("ui.claimed_83c8788")}
                 </p>
@@ -169,7 +169,7 @@ export default function StreamDetailPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-border-default bg-card p-5">
+              <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-gold">
                   {translateCopy("ui.unclaimed_fca0eb7")}
                 </p>
@@ -181,7 +181,7 @@ export default function StreamDetailPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-border-default bg-card p-5">
+              <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-status-warning">
                   {translateCopy("ui.pending_clawback_dc060c4")}
                 </p>
@@ -195,11 +195,11 @@ export default function StreamDetailPage() {
             </div>
 
             {/* Progress bar */}
-            <div className="rounded-2xl border border-border-default bg-card p-5">
+            <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-[0.22em] text-text-secondary mb-3">
                 {translateCopy("ui.vesting_progress_eb0cd55")}
               </p>
-              <div className="h-3 w-full overflow-hidden rounded-full bg-bg-elevated">
+              <div className="h-3 w-full overflow-hidden rounded-full bg-surface-2">
                 <div
                   className="h-full bg-status-success transition-all"
                   style={{

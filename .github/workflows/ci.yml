@@ -89,6 +89,9 @@ jobs:
         if: needs.changes.outputs.frontend == 'true'
         run: node scripts/check-tailwind-colors.mjs
 
+      - name: Design token names
+        run: node scripts/check-token-names.mjs
+
       - name: Type check
         run: npx tsc --noEmit
 

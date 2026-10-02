@@ -52,7 +52,7 @@ export default function StreamsPage() {
   ];
 
   return (
-    <section className="min-h-full bg-bg-primary px-6 py-8 lg:px-10">
+    <section className="min-h-full bg-surface-0 px-6 py-8 lg:px-10">
       <div className="mx-auto max-w-7xl space-y-6">
         {/* Breadcrumb */}
         <Breadcrumbs items={breadcrumbItems} />
@@ -69,7 +69,7 @@ export default function StreamsPage() {
         {/* Coming soon placeholder */}
         {!canAccessAdmin ? (
           <>
-        <div className="rounded-2xl border border-border-default bg-card p-8 text-center">
+        <div className="rounded-2xl border border-border-default bg-surface-1 p-8 text-center">
           <svg
             className="mx-auto h-12 w-12 text-text-muted"
             fill="none"
@@ -90,7 +90,7 @@ export default function StreamsPage() {
           <div className="mt-6">
             <Link
               href="/"
-              className="inline-flex rounded-lg border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-card hover:text-text-primary transition-colors"
+              className="inline-flex rounded-lg border border-border-default bg-surface-2 px-4 py-2 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-surface-1 hover:text-text-primary transition-colors"
             >
               {translateCopy("ui.back_to_home_ce7472d")}
             </Link>
@@ -98,7 +98,7 @@ export default function StreamsPage() {
         </div>
 
         {/* Example stream navigation */}
-        <div className="rounded-2xl border border-border-default bg-card p-5">
+        <div className="rounded-2xl border border-border-default bg-surface-1 p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-text-secondary mb-3">
             {translateCopy("ui.quick_access_85257a4")}
           </p>
@@ -108,7 +108,7 @@ export default function StreamsPage() {
           <div className="flex gap-3">
             <Link
               href="/admin/streams"
-              className="rounded-lg border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-card hover:text-text-primary transition-colors"
+              className="rounded-lg border border-border-default bg-surface-2 px-4 py-2 text-sm font-medium text-text-secondary hover:border-border-hover hover:bg-surface-1 hover:text-text-primary transition-colors"
             >
               View Stream Ledger
             </Link>
@@ -117,7 +117,7 @@ export default function StreamsPage() {
           </>
         ) : (
           <>
-            <div className="overflow-hidden rounded-lg border border-border-default bg-card">
+            <div className="overflow-hidden rounded-lg border border-border-default bg-surface-1">
               <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)_auto] gap-4 border-b border-border-default px-5 py-3 text-xs font-semibold uppercase text-text-muted">
                 <span>{translateCopy("ui.stream_column")}</span><span>{translateCopy("ui.vesting_progress_column")}</span><span>{translateCopy("ui.status_column")}</span>
               </div>
@@ -129,7 +129,7 @@ export default function StreamsPage() {
                   <Link
                     key={stream.streamId}
                     href={`/streams/${encodeURIComponent(stream.streamId)}`}
-                    className="grid grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)_auto] items-center gap-4 border-b border-border-default px-5 py-4 last:border-b-0 hover:bg-bg-elevated"
+                    className="grid grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)_auto] items-center gap-4 border-b border-border-default px-5 py-4 last:border-b-0 hover:bg-surface-2"
                   >
                     <span className="min-w-0">
                       <span className="block truncate font-mono text-sm text-text-primary">{stream.streamId}</span>
@@ -137,7 +137,7 @@ export default function StreamsPage() {
                     </span>
                     <span>
                       <span className="block text-sm text-text-primary">{translateCopy("ui.stream_progress_claimed", { progress })}</span>
-                      <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-bg-elevated">
+                      <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-surface-2">
                         <span className="block h-full bg-status-success" style={{ width: `${progress}%` }} />
                       </span>
                     </span>

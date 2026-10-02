@@ -94,7 +94,7 @@ describe('ReleaseSequenceCard Component', () => {
 
     it('applies correct styling for pending step', () => {
         const { container } = render(<ReleaseSequenceCard {...defaultProps} />);
-        const pendingStepCircle = container.querySelector('.bg-bg-elevated');
+        const pendingStepCircle = container.querySelector('.bg-surface-2');
         expect(pendingStepCircle).toBeInTheDocument();
     });
 

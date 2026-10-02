@@ -29,7 +29,7 @@ function LossRatioBar({
         <span className="text-text-secondary">{label}</span>
         <span className="text-text-primary font-semibold">{value}%</span>
       </div>
-      <div className="h-1.5 bg-elevated rounded-full overflow-hidden">
+      <div className="h-1.5 bg-surface-2 rounded-full overflow-hidden">
         <div
           className={`h-full rounded-full ${color} transition-all duration-700`}
           style={{ width: `${pct}%` }}
@@ -41,7 +41,7 @@ function LossRatioBar({
 
 export function ContractInfo({ trade }: ContractInfoProps) {
   return (
-    <div id="trade-contract" className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div id="trade-contract" className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       <h2 className="text-sm font-semibold text-text-secondary tracking-wide uppercase mb-4">
         {translateCopy("ui.contract_details_130859d")}
       </h2>

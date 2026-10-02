@@ -143,7 +143,7 @@ export function DisputeVerificationModal({
   return (
     <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-overlay backdrop-blur-lg z-50 flex items-center justify-center p-4">
+        <Dialog.Overlay className="fixed inset-0 bg-surface-3 backdrop-blur-lg z-50 flex items-center justify-center p-4">
           <Dialog.Content
             className="bg-[#122A1F] border border-border-default shadow-modal rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto flex flex-col"
             aria-describedby="dispute-modal-description"
@@ -167,7 +167,7 @@ export function DisputeVerificationModal({
               className="px-6 py-6 flex flex-col gap-6"
             >
               {/* Trade context */}
-              <div className="bg-bg-elevated rounded-xl px-4 py-3 flex flex-col gap-1">
+              <div className="bg-surface-2 rounded-xl px-4 py-3 flex flex-col gap-1">
                 <p className="text-xs text-text-muted">{translateCopy("ui.trade_id_153d513")}</p>
                 <p className="text-sm font-mono text-text-primary truncate">
                   {tradeId}
@@ -236,7 +236,7 @@ export function DisputeVerificationModal({
                     </p>
                   </div>
                   {ipfsHash && (
-                    <div className="text-xs text-text-muted bg-bg-elevated rounded-lg px-3 py-2 flex items-center gap-2">
+                    <div className="text-xs text-text-muted bg-surface-2 rounded-lg px-3 py-2 flex items-center gap-2">
                       <span className="truncate flex-1 font-mono">
                         {translateCopy("ui.ipfs_cde081a")}{" "}{ipfsHash}
                       </span>
@@ -253,7 +253,7 @@ export function DisputeVerificationModal({
                   <div className="flex gap-3">
                     <button
                       onClick={() => setStep("upload")}
-                      className="flex-1 py-3 rounded-xl text-sm font-semibold border border-border-default text-text-secondary hover:bg-bg-elevated transition-colors"
+                      className="flex-1 py-3 rounded-xl text-sm font-semibold border border-border-default text-text-secondary hover:bg-surface-2 transition-colors"
                     >
                       {translateCopy("common.back")}
                     </button>
@@ -284,7 +284,7 @@ export function DisputeVerificationModal({
                     </p>
                   </div>
                   {ipfsHash && (
-                    <div className="text-xs text-text-muted bg-bg-elevated rounded-lg px-3 py-2 flex items-center gap-2">
+                    <div className="text-xs text-text-muted bg-surface-2 rounded-lg px-3 py-2 flex items-center gap-2">
                       <span className="truncate flex-1 font-mono">
                         {translateCopy("ui.ipfs_cde081a")}{" "}{ipfsHash}
                       </span>
@@ -301,7 +301,7 @@ export function DisputeVerificationModal({
                   <div className="flex gap-3">
                     <button
                       onClick={() => setStep("upload")}
-                      className="flex-1 py-3 rounded-xl text-sm font-semibold border border-border-default text-text-secondary hover:bg-bg-elevated transition-colors"
+                      className="flex-1 py-3 rounded-xl text-sm font-semibold border border-border-default text-text-secondary hover:bg-surface-2 transition-colors"
                     >
                       {translateCopy("common.back")}
                     </button>
@@ -377,7 +377,7 @@ export function DisputeVerificationModal({
                   )}
                   <button
                     onClick={onClose}
-                    className="mt-2 px-6 py-2 rounded-xl border border-border-default text-text-secondary text-sm font-semibold hover:bg-bg-elevated transition-colors"
+                    className="mt-2 px-6 py-2 rounded-xl border border-border-default text-text-secondary text-sm font-semibold hover:bg-surface-2 transition-colors"
                   >
                     {translateCopy("common.close")}
                   </button>
@@ -398,7 +398,7 @@ export function DisputeVerificationModal({
                   )}
                   <button
                     onClick={() => setStep("upload")}
-                    className="mt-2 px-6 py-2 rounded-xl border border-border-default text-text-secondary text-sm font-semibold hover:bg-bg-elevated transition-colors"
+                    className="mt-2 px-6 py-2 rounded-xl border border-border-default text-text-secondary text-sm font-semibold hover:bg-surface-2 transition-colors"
                   >
                     {translateCopy("ui.try_again_cef2fe0")}
                   </button>

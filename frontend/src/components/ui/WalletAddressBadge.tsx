@@ -60,7 +60,7 @@ export function WalletAddressBadge({
 
   return (
     <div
-      className={`group bg-elevated border border-border-default rounded-md px-2 py-1 font-mono text-sm inline-flex items-center gap-1.5 ${className ?? ""}`}
+      className={`group bg-surface-2 border border-border-default rounded-md px-2 py-1 font-mono text-sm inline-flex items-center gap-1.5 ${className ?? ""}`}
     >
       <span className="text-text-secondary">{displayAddress}</span>
 

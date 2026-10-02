@@ -85,7 +85,7 @@ export function ModalContent({
       />
       <Dialog.Content
         className={clsx(
-          "fixed z-50 bg-card dark:bg-surface-1 border border-border-default dark:border-border-default shadow-modal",
+          "fixed z-50 bg-surface-1 dark:bg-surface-1 border border-border-default dark:border-border-default shadow-modal",
           "transition-all duration-200 ease-out",
           "data-[state=open]:opacity-100 data-[state=closed]:opacity-0",
           "data-[state=open]:scale-100 data-[state=closed]:scale-95",
@@ -109,7 +109,7 @@ export function ModalContent({
         {showCloseButton ? (
           <Dialog.Close
             aria-label={translateCopy("ui.close_dialog_7b29020")}
-            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-lg text-text-secondary dark:text-text-secondary transition-colors hover:bg-elevated dark:hover:bg-surface-2 hover:text-text-primary dark:hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-lg text-text-secondary dark:text-text-secondary transition-colors hover:bg-surface-2 dark:hover:bg-surface-2 hover:text-text-primary dark:hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             <X size={18} />
           </Dialog.Close>

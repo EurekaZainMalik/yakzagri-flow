@@ -27,7 +27,7 @@ export function AppSidebar({ isOpen, onClose }: AppSidebarProps) {
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-bg-overlay z-40 lg:hidden"
+          className="fixed inset-0 bg-surface-3 z-40 lg:hidden"
           onClick={onClose}
           aria-hidden="true"
         />

@@ -136,7 +136,7 @@ export default function Step1Details() {
       </div>
 
       {/* Total preview */}
-      <div className="flex items-center justify-between rounded-lg bg-bg-elevated px-4 py-3 border border-border-default">
+      <div className="flex items-center justify-between rounded-lg bg-surface-2 px-4 py-3 border border-border-default">
         <span className="text-sm text-text-secondary">{translateCopy("ui.estimated_total_1636f5a")}</span>
         <span className="text-gold font-semibold">{totalDisplay}</span>
       </div>

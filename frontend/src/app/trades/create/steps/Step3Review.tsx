@@ -183,11 +183,11 @@ export function Step3Review() {
           <p className="text-text-primary font-semibold text-lg">{translateCopy("ui.trade_created_c6d612a")}</p>
           <p className="text-text-secondary text-sm mt-1">{translateCopy("ui.funds_locked_in_escrow_vault_b134ccb")}</p>
         </div>
-        <div className="w-full rounded-lg bg-bg-elevated border border-border-default px-4 py-3 text-left">
+        <div className="w-full rounded-lg bg-surface-2 border border-border-default px-4 py-3 text-left">
           <p className="text-xs text-text-muted mb-1">{translateCopy("ui.trade_id_153d513")}</p>
           <p className="text-emerald font-mono text-sm break-all">{tradeId}</p>
         </div>
-        <div className="w-full rounded-lg bg-bg-elevated border border-border-default px-4 py-3 text-left">
+        <div className="w-full rounded-lg bg-surface-2 border border-border-default px-4 py-3 text-left">
           <p className="text-xs text-text-muted mb-1">{translateCopy("ui.transaction_hash_7534364")}</p>
           <p className="text-emerald font-mono text-sm break-all">{txHash}</p>
         </div>
@@ -243,7 +243,7 @@ export function Step3Review() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-lg bg-bg-elevated border border-border-default px-4 divide-y divide-border-default">
+      <div className="rounded-lg bg-surface-2 border border-border-default px-4 divide-y divide-border-default">
         <ReviewRow label="Commodity" value={data.commodity} />
         <ReviewRow label="Quantity" value={`${data.quantity} ${data.unit}`} />
         <ReviewRow label="Price per unit" value={`${data.currency} ${data.pricePerUnit}`} />

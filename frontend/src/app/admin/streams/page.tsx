@@ -129,7 +129,7 @@ export default function AdminStreamsPage() {
 
           return (
             <div
-              className="p-6 bg-bg-elevated rounded-lg border border-border-default mb-4"
+              className="p-6 bg-surface-2 rounded-lg border border-border-default mb-4"
               data-testid={`stream-row-${stream.streamId}`}
             >
               <div className="flex items-start justify-between gap-4">

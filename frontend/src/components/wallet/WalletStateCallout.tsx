@@ -37,7 +37,7 @@ export function WalletStateCallout({
       <div
         role="status"
         aria-live="polite"
-        className={`flex items-center gap-3 rounded-lg border border-border-default bg-card px-4 py-3 ${className ?? ""}`}
+        className={`flex items-center gap-3 rounded-lg border border-border-default bg-surface-1 px-4 py-3 ${className ?? ""}`}
       >
         <Spinner size="sm" />
         <span className="text-sm text-text-secondary">{view.title}</span>
@@ -48,7 +48,7 @@ export function WalletStateCallout({
   return (
     <div
       role="alert"
-      className={`flex flex-col gap-2 rounded-lg border border-border-raised bg-card p-4 ${className ?? ""}`}
+      className={`flex flex-col gap-2 rounded-lg border border-border-raised bg-surface-1 p-4 ${className ?? ""}`}
       data-wallet-state={state}
     >
       <p className="text-sm font-semibold text-text-primary">{view.title}</p>

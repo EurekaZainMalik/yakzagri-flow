@@ -39,7 +39,7 @@ export function FlagDebugPanel() {
         aria-label={isOpen ? "Close feature flags panel" : "Open feature flags panel"}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-1.5 rounded-lg border border-border-default bg-card px-3 py-2 text-xs font-semibold text-text-secondary shadow-lg hover:border-border-hover hover:text-text-primary transition-colors"
+        className="flex items-center gap-1.5 rounded-lg border border-border-default bg-surface-1 px-3 py-2 text-xs font-semibold text-text-secondary shadow-lg hover:border-border-hover hover:text-text-primary transition-colors"
       >
         <span aria-hidden>🚩</span>
         <span>{translateCopy("ui.flags_5d72875")}</span>
@@ -56,7 +56,7 @@ export function FlagDebugPanel() {
         <div
           role="dialog"
           aria-label={translateCopy("ui.feature_flags_debug_panel_9dc6c32")}
-          className="absolute bottom-10 right-0 w-72 rounded-xl border border-border-default bg-card shadow-xl"
+          className="absolute bottom-10 right-0 w-72 rounded-xl border border-border-default bg-surface-1 shadow-xl"
         >
           {/* Header */}
           <div className="flex items-center justify-between border-b border-border-default px-4 py-3">

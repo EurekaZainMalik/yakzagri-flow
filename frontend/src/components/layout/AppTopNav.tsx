@@ -52,12 +52,12 @@ export function AppTopNav({
   }, []);
 
   return (
-    <header className="h-14 bg-card border-b border-border-default flex items-center px-4 lg:px-6 gap-4 lg:gap-8 flex-shrink-0">
+    <header className="h-14 bg-surface-1 border-b border-border-default flex items-center px-4 lg:px-6 gap-4 lg:gap-8 flex-shrink-0">
       {/* Mobile menu button */}
       <button
         type="button"
         onClick={onToggleSidebar}
-        className="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-elevated transition-all"
+        className="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-all"
         aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
       >
         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -111,7 +111,7 @@ export function AppTopNav({
           aria-label={translateCopy("ui.top_nav_open_notifications")}
           disabled={!notificationsEnabled}
           onClick={() => void useNotificationStore.getState().fetch()}
-          className="w-8 h-8 rounded-full flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-elevated transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-text-secondary disabled:hover:bg-transparent"
+          className="w-8 h-8 rounded-full flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-surface-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-text-secondary disabled:hover:bg-transparent"
         >
           <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
             <path d="M8 1a5 5 0 015 5v3l1.5 2.5H1.5L3 9V6a5 5 0 015-5z" />
@@ -124,7 +124,7 @@ export function AppTopNav({
           type="button"
           aria-label={translateCopy("ui.top_nav_open_account_settings")}
           onClick={() => router.push("/settings")}
-          className="w-8 h-8 rounded-full bg-elevated border border-border-default flex items-center justify-center text-text-secondary hover:text-text-primary transition-all"
+          className="w-8 h-8 rounded-full bg-surface-2 border border-border-default flex items-center justify-center text-text-secondary hover:text-text-primary transition-all"
         >
           <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8">
             <circle cx="8" cy="5" r="3" />

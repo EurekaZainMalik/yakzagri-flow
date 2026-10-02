@@ -45,7 +45,7 @@ function InfoCard({
   helper: string;
 }) {
   return (
-    <div className="rounded-lg border border-border-default bg-bg-card p-4">
+    <div className="rounded-lg border border-border-default bg-surface-1 p-4">
       <p className="text-xs uppercase tracking-wide text-text-muted">{title}</p>
       <p className="mt-3 text-lg font-semibold text-text-primary font-mono">{value}</p>
       <p className="mt-2 text-xs text-text-secondary">{helper}</p>
@@ -237,7 +237,7 @@ export default function TradeDetailPage() {
       {!loading && !error && trade && (
         <div className="space-y-6">
           {/* Identity row */}
-          <div className="rounded-lg border border-border-default bg-bg-card p-5">
+          <div className="rounded-lg border border-border-default bg-surface-1 p-5">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
               <div>
                 <p className="text-xs uppercase tracking-wide text-text-muted">{translateCopy("ui.trade_id_153d513")}</p>
@@ -256,7 +256,7 @@ export default function TradeDetailPage() {
 
           {/* Wallet balance */}
           {isAuthenticated && balance !== null && (
-            <div className="rounded-lg border border-border-default bg-bg-card p-4 flex items-center justify-between">
+            <div className="rounded-lg border border-border-default bg-surface-1 p-4 flex items-center justify-between">
               <p className="text-xs uppercase tracking-wide text-text-muted">{translateCopy("ui.wallet_balance_3b5c956")}</p>
               <p className="text-sm font-semibold text-text-primary">
                 {balance} {asset}
@@ -265,7 +265,7 @@ export default function TradeDetailPage() {
           )}
 
           {/* On-chain + off-chain status panel */}
-          <div className="rounded-lg border border-border-default bg-bg-card p-5 space-y-3">
+          <div className="rounded-lg border border-border-default bg-surface-1 p-5 space-y-3">
             <p className="text-xs uppercase tracking-wide text-text-muted mb-3">{translateCopy("ui.contract_state_8b2df78")}</p>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
@@ -313,7 +313,7 @@ export default function TradeDetailPage() {
 
           {/* Role-based action buttons */}
           {isAuthenticated && (
-            <div className="rounded-lg border border-border-default bg-bg-card p-5">
+            <div className="rounded-lg border border-border-default bg-surface-1 p-5">
               <p className="text-xs uppercase tracking-wide text-text-muted mb-4">{translateCopy("ui.actions_c3cd636")}</p>
               <div className="flex flex-wrap gap-3">
                 {role === "buyer" && status === "PENDING" && (
@@ -390,7 +390,7 @@ export default function TradeDetailPage() {
 
       {/* Not found */}
       {!loading && !error && !trade && (
-        <div className="rounded-lg border border-border-default bg-bg-card dark:bg-surface-1 p-8 text-center">
+        <div className="rounded-lg border border-border-default bg-surface-1 dark:bg-surface-1 p-8 text-center">
           <p className="text-text-muted">{translateCopy("ui.trade_not_found_d9178ec")}</p>
         </div>
       )}

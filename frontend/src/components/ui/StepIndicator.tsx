@@ -40,10 +40,10 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
           circleClass += "bg-accent-emerald text-inverse";
           content = <Icon name="check" size="sm" className="text-inverse" />;
         } else if (isCurrent) {
-          circleClass += "border-2 border-gold font-bold text-gold bg-bg-primary";
+          circleClass += "border-2 border-gold font-bold text-gold bg-surface-0";
           content = index + 1;
         } else {
-          circleClass += "border-2 border-border-default text-text-muted bg-bg-primary";
+          circleClass += "border-2 border-border-default text-text-muted bg-surface-0";
           content = index + 1;
         }
 

@@ -16,13 +16,6 @@ const config: Config = {
         "surface-2": "var(--surface-2)",
         "surface-3": "var(--surface-3)",
 
-        // Legacy bg-* aliases — kept for backward-compat
-        "bg-primary": "var(--bg-primary)",
-        "bg-card": "var(--bg-card)",
-        "bg-elevated": "var(--bg-elevated)",
-        "bg-input": "var(--bg-input)",
-        "bg-overlay": "var(--bg-overlay)",
-
         gold: "var(--gold)",
         "gold-hover": "var(--gold-hover)",
         "gold-muted": "var(--gold-muted)",
@@ -78,12 +71,6 @@ const config: Config = {
         "surface-1": "var(--surface-1)",
         "surface-2": "var(--surface-2)",
         "surface-3": "var(--surface-3)",
-        // Legacy aliases
-        primary: "var(--bg-primary)",
-        card: "var(--bg-card)",
-        elevated: "var(--bg-elevated)",
-        input: "var(--bg-input)",
-        overlay: "var(--bg-overlay)",
       },
       textColor: {
         primary: "var(--text-primary)",

@@ -26,7 +26,7 @@ export function ActionBar({
   const showReleaseFunds = trade.status === "IN TRANSIT";
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-card/90 backdrop-blur-md border-t border-border-default p-4 flex justify-end gap-4 z-50">
+    <div className="fixed bottom-0 left-0 w-full bg-surface-1/90 backdrop-blur-md border-t border-border-default p-4 flex justify-end gap-4 z-50">
       {showRaiseDispute && (
         <button
           onClick={onRaiseDispute}

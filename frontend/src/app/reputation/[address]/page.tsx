@@ -47,7 +47,7 @@ export default function UserReputationPage() {
             [translateCopy("ui.completed"), data.completedTrades],
             [translateCopy("ui.disputed"), data.disputedTrades],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-lg border border-border-default bg-bg-card p-4">
+            <div key={label} className="rounded-lg border border-border-default bg-surface-1 p-4">
               <dt className="text-xs text-text-muted">{label}</dt>
               <dd className="mt-2 text-xl font-semibold text-text-primary">{value}</dd>
             </div>

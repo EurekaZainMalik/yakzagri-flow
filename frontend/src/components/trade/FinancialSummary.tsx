@@ -45,7 +45,7 @@ export function FinancialSummary({ trade }: FinancialSummaryProps) {
   const ngnEquivalent = convertCngnToNgn(trade.vaultAmountLocked);
 
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-surface-1 rounded-xl border border-border-default p-6 shadow-card">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-semibold text-text-secondary tracking-wide uppercase">
           {translateCopy("ui.financial_summary_8cfc2d8")}

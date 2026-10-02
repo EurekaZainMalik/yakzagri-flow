@@ -81,14 +81,14 @@ export default function Step2Negotiation() {
         />
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-lg bg-bg-elevated border border-border-default px-4 py-3">
+          <div className="rounded-lg bg-surface-2 border border-border-default px-4 py-3">
             <p className="text-xs text-text-muted mb-1">{translateCopy("ui.buyer_absorbs_319cfa2")}</p>
             <p className="text-text-primary font-semibold">{data.buyerRatio}%</p>
             {totalValue > 0 && (
               <p className="text-xs text-text-secondary mt-1">{data.currency} {buyerLoss}</p>
             )}
           </div>
-          <div className="rounded-lg bg-bg-elevated border border-border-default px-4 py-3">
+          <div className="rounded-lg bg-surface-2 border border-border-default px-4 py-3">
             <p className="text-xs text-text-muted mb-1">{translateCopy("ui.seller_absorbs_6dd1cf2")}</p>
             <p className="text-text-primary font-semibold">{data.sellerRatio}%</p>
             {totalValue > 0 && (

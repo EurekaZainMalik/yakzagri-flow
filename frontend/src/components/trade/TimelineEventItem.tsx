@@ -57,7 +57,7 @@ const NODE_STYLES: Record<TransactionEventStatus, string> = {
   completed: "bg-emerald text-text-inverse border-emerald",
   active:
     "bg-status-warning text-text-inverse border-status-warning ring-4 ring-status-warning/20",
-  pending: "bg-elevated text-text-muted border-border-default",
+  pending: "bg-surface-2 text-text-muted border-border-default",
   failed: "bg-status-danger/10 text-status-danger border-status-danger/40",
 };
 
