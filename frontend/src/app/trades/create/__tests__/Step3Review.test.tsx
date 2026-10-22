@@ -520,5 +520,42 @@ describe('Step3Review', () => {
             // Button should be disabled when empty
             expect(submitButton).toBeDisabled();
         });
+
+        it('should render slippage tolerance selector and update selected tolerance', async () => {
+            const user = userEvent.setup();
+            renderWithProvider({
+                commodity: 'Maize',
+                quantity: '100',
+                pricePerUnit: '10',
+                sellerAddress: 'GBRP4ZDXSS6NZPMTVNE7DZ47JNV7OFPJMIVG4FDCMNZP7CHH4656YEXI',
+                buyerRatio: 50,
+                sellerRatio: 50,
+                deliveryDays: '7',
+            });
+
+            expect(screen.getByTestId('slippage-tolerance-section')).toBeInTheDocument();
+            const btn1Pct = screen.getByRole('button', { name: '1.0%' });
+            await user.click(btn1Pct);
+            expect(btn1Pct).toHaveAttribute('aria-pressed', 'true');
+            expect(screen.getByText(/Max spend: 1010\.00 cNGN/i)).toBeInTheDocument();
+        });
+
+        it('should display Soroban simulation fee and resource breakdown before signing', () => {
+            renderWithProvider({
+                commodity: 'Maize',
+                quantity: '100',
+                pricePerUnit: '10',
+                sellerAddress: 'GBRP4ZDXSS6NZPMTVNE7DZ47JNV7OFPJMIVG4FDCMNZP7CHH4656YEXI',
+                buyerRatio: 50,
+                sellerRatio: 50,
+                deliveryDays: '7',
+            });
+
+            const simSection = screen.getByTestId('soroban-simulation-breakdown');
+            expect(simSection).toBeInTheDocument();
+            expect(simSection).toHaveTextContent(/Soroban Simulation & Fee Breakdown/i);
+            expect(simSection).toHaveTextContent(/CPU Instructions:/i);
+            expect(simSection).toHaveTextContent(/Ledger I\/O:/i);
+        });
     });
 });

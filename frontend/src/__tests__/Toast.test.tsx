@@ -1,4 +1,4 @@
-import { render, screen, act, waitFor } from "@testing-library/react";
+import { render, screen, act, waitFor, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
 import { Toast } from "@/components/ui/Toast";
@@ -103,6 +103,40 @@ describe("Toast component", () => {
       <Toast id="1" type={type} message="msg" onClose={onClose} />
     );
     expect(container.firstChild).toBeInTheDocument();
+  });
+});
+
+describe("Toast auto-dismiss timing (WCAG 2.2.1)", () => {
+  const onClose = jest.fn();
+
+  beforeEach(() => onClose.mockClear());
+
+  it("pauses the dismissal countdown while hovered and resumes on leave", () => {
+    render(<Toast id="hover" type="info" message="Hover me" duration={1000} onClose={onClose} />);
+    const toast = screen.getByRole("group");
+
+    act(() => jest.advanceTimersByTime(600));
+    fireEvent.mouseEnter(toast);
+    act(() => jest.advanceTimersByTime(5000));
+    expect(onClose).not.toHaveBeenCalled();
+
+    fireEvent.mouseLeave(toast);
+    act(() => jest.advanceTimersByTime(1000));
+    expect(onClose).toHaveBeenCalledWith("hover");
+  });
+
+  it("pauses the dismissal countdown while focus is inside and resumes on blur", () => {
+    render(<Toast id="focus" type="error" message="Focus me" duration={1000} onClose={onClose} />);
+    const toast = screen.getByRole("group");
+
+    act(() => jest.advanceTimersByTime(400));
+    fireEvent.focusIn(toast);
+    act(() => jest.advanceTimersByTime(5000));
+    expect(onClose).not.toHaveBeenCalled();
+
+    fireEvent.focusOut(toast);
+    act(() => jest.advanceTimersByTime(1000));
+    expect(onClose).toHaveBeenCalledWith("focus");
   });
 });
 

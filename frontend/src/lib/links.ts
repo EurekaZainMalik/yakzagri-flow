@@ -70,3 +70,58 @@ export function appUrlForPath(pathname: string): string | null {
 export function screenForPath(pathname: string): DeepLinkScreen | null {
   return ROUTES.find((r) => r.match.test(pathname))?.screen ?? null;
 }
+
+/**
+ * Whether the app is running in a development environment. Read lazily so the
+ * check reflects the current runtime (and stays testable via env stubs).
+ */
+function isDevEnvironment(): boolean {
+  try {
+    const env = (import.meta as { env?: Record<string, string | undefined> }).env;
+    return env?.MODE === "development" || env?.DEV === "true";
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Sanitize an external URL so it is safe to use as an `href`.
+ *
+ * Only `https://` URLs are permitted. In development, `http://localhost`
+ * (and `http://127.0.0.1`) are also allowed for local tooling. Everything
+ * else — including `javascript:`, `data:`, `vbscript:`, `file:`, and any
+ * obfuscated variants (mixed case, embedded whitespace/control characters,
+ * leading/trailing junk) — is rejected.
+ *
+ * Returns the normalized URL string when allowed, or `null` when rejected.
+ */
+export function sanitizeExternalUrl(raw: string | null | undefined): string | null {
+  if (typeof raw !== "string") return null;
+
+  // Strip leading/trailing whitespace and any embedded control characters
+  // (e.g. "java\tscript:", "java\nscript:") that browsers may ignore.
+  const trimmed = raw.trim().replace(/[\u0000-\u001F\u007F\s]+/g, "");
+  if (!trimmed) return null;
+
+  let parsed: URL;
+  try {
+    parsed = new URL(trimmed);
+  } catch {
+    return null;
+  }
+
+  const protocol = parsed.protocol.toLowerCase();
+
+  if (protocol === "https:") {
+    return parsed.toString();
+  }
+
+  if (protocol === "http:" && isDevEnvironment()) {
+    const host = parsed.hostname.toLowerCase();
+    if (host === "localhost" || host === "127.0.0.1" || host === "[::1]") {
+      return parsed.toString();
+    }
+  }
+
+  return null;
+}

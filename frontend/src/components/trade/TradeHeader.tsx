@@ -17,7 +17,7 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 export function TradeHeader({ trade, onConfirmDelivery, confirmingDelivery = false }: TradeHeaderProps) {
 
   return (
-    <div className="bg-card rounded-xl border border-border-default p-6 shadow-card">
+    <div className="bg-card rounded-xl border border-border-default p-6 shadow-elev-1">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-text-muted mb-4">
         <span className="hover:text-text-secondary cursor-pointer transition-colors">

@@ -22,6 +22,12 @@ interface VirtualizedListProps<T> {
   isEmpty?: boolean;
   /** Empty state render. */
   emptyState?: React.ReactNode;
+  /**
+   * Row count at or below which the list renders all rows without
+   * virtualization. Keeps small tables (e.g. <50 trades) simple and avoids
+   * the overhead of a scroll container. Defaults to 50.
+   */
+  virtualizationThreshold?: number;
 }
 
 /**
@@ -30,6 +36,9 @@ interface VirtualizedListProps<T> {
  *
  * Preserves scroll position and supports keyboard/screen-reader semantics
  * via aria attributes on the scroll container.
+ *
+ * Lists at or below `virtualizationThreshold` rows render in full so small
+ * trade tables keep their natural layout; larger lists are virtualized.
  *
  * Usage:
  * ```tsx
@@ -51,8 +60,11 @@ export function VirtualizedList<T>({
   className,
   isEmpty = false,
   emptyState,
+  virtualizationThreshold = 50,
 }: VirtualizedListProps<T>) {
   const parentRef = useRef<HTMLDivElement>(null);
+
+  const shouldVirtualize = items.length > virtualizationThreshold;
 
   const virtualizer = useVirtualizer({
     count: items.length,
@@ -63,7 +75,7 @@ export function VirtualizedList<T>({
 
   const totalHeight = Math.min(items.length * rowHeight, maxHeight);
 
-  if (isEmpty) {
+  if (isEmpty || items.length === 0) {
     return (
       <div className={className} role="list" aria-label={translateCopy("ui.empty_list_6dcc057")}>
         {emptyState ?? (
@@ -71,6 +83,22 @@ export function VirtualizedList<T>({
             {translateCopy("ui.no_items_to_display_099de12")}
           </div>
         )}
+      </div>
+    );
+  }
+
+  if (!shouldVirtualize) {
+    return (
+      <div
+        className={className}
+        role="list"
+        aria-label={translateCopy("ui.virtualized_list_4c3cd62")}
+      >
+        {items.map((item, index) => (
+          <div key={keyExtractor(item, index)} role="listitem" data-index={index}>
+            {renderItem(item, index)}
+          </div>
+        ))}
       </div>
     );
   }

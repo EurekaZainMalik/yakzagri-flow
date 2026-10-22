@@ -179,6 +179,38 @@ describe('TradeContext', () => {
         });
     });
 
+    describe('resetTradeWizard', () => {
+        it('resets all fields and the step and removes the persisted draft', () => {
+            localStorage.clear();
+            const { result } = renderHook(() => useTrade(), { wrapper });
+
+            act(() => {
+                result.current.update({ commodity: 'Maize', quantity: '200', notes: 'Test draft' });
+                result.current.setStep(3);
+            });
+            expect(localStorage.getItem('amana:draft-trade')).not.toBeNull();
+
+            act(() => {
+                result.current.resetTradeWizard();
+            });
+
+            expect(result.current.step).toBe(1);
+            expect(result.current.data).toEqual({
+                commodity: '',
+                quantity: '',
+                unit: 'kg',
+                pricePerUnit: '',
+                currency: 'NGN',
+                sellerAddress: '',
+                buyerRatio: 50,
+                sellerRatio: 50,
+                deliveryDays: '7',
+                notes: '',
+            });
+            expect(localStorage.getItem('amana:draft-trade')).toBeNull();
+        });
+    });
+
     describe('edge cases', () => {
         it('should handle empty string updates', () => {
             const { result } = renderHook(() => useTrade(), { wrapper });

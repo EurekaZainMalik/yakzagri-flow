@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 import {
   DEFAULT_LOCALE,
   intlLocale,
+  localeDirection,
   resolveLocale,
   setActiveLocale,
   SUPPORTED_LOCALES,
@@ -51,7 +52,9 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setActiveLocale(locale);
-    document.documentElement.lang = intlLocale(locale);
+    const lang = intlLocale(locale);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = localeDirection(locale);
     try {
       window.localStorage.setItem(STORAGE_KEY, locale);
     } catch {
