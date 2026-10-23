@@ -53,6 +53,33 @@ describe("Create Trade Validation", () => {
       const result = step1Schema.safeParse(data);
       expect(result.success).toBe(false);
     });
+    it("accepts valid Stellar contract C-address", () => {
+      const data = {
+        commodity: "Maize",
+        quantity: "500",
+        unit: "kg",
+        pricePerUnit: "450",
+        currency: "NGN",
+        sellerAddress: "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+      };
+      const result = step1Schema.safeParse(data);
+      expect(result.success).toBe(true);
+    });
+
+    it("rejects self-escrow when buyerAddress and sellerAddress match", () => {
+      const addr = "GDNM7WSJ7VIUVK2TSZ2OQES5XR2663TZEIBFXRDT56B5IRLHERVWSXMU";
+      const data = {
+        commodity: "Maize",
+        quantity: "500",
+        unit: "kg",
+        pricePerUnit: "450",
+        currency: "NGN",
+        buyerAddress: addr,
+        sellerAddress: addr,
+      };
+      const result = step1Schema.safeParse(data);
+      expect(result.success).toBe(false);
+    });
   });
 
   describe("step2Schema", () => {
@@ -88,6 +115,22 @@ describe("Create Trade Validation", () => {
         sellerAddress: "GDNM7WSJ7VIUVK2TSZ2OQES5XR2663TZEIBFXRDT56B5IRLHERVWSXMU",
       });
       expect(Object.keys(errors)).toHaveLength(0);
+    });
+
+    it("returns error when buyer and seller addresses are identical", () => {
+      const addr = "GDNM7WSJ7VIUVK2TSZ2OQES5XR2663TZEIBFXRDT56B5IRLHERVWSXMU";
+      const errors = validateStep1(
+        {
+          commodity: "Maize",
+          quantity: "500",
+          unit: "kg",
+          pricePerUnit: "450",
+          currency: "NGN",
+          sellerAddress: addr,
+        },
+        addr
+      );
+      expect(errors.sellerAddress).toMatch(/identical/i);
     });
 
     it("returns errors for invalid data", () => {

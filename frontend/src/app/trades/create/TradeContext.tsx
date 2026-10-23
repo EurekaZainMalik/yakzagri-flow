@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 
 export type TradeData = {
   // Step 1
@@ -21,6 +21,7 @@ type TradeContextType = {
   setStep: (s: number) => void;
   data: TradeData;
   update: (partial: Partial<TradeData>) => void;
+  resetTradeWizard: () => void;
 };
 
 const defaults: TradeData = {
@@ -42,6 +43,8 @@ const STORAGE_KEY = "amana:draft-trade";
 
 export function TradeProvider({ children }: { children: React.ReactNode }) {
   const [step, setStep] = useState(1);
+  const [resetVersion, setResetVersion] = useState(0);
+  const persistedResetVersion = useRef(0);
   const [data, setData] = useState<TradeData>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -57,10 +60,14 @@ export function TradeProvider({ children }: { children: React.ReactNode }) {
 
   // Persist draft locally — survives refresh/restart, replays via offline queue
   useEffect(() => {
+    if (persistedResetVersion.current !== resetVersion) {
+      persistedResetVersion.current = resetVersion;
+      return;
+    }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ data, step, savedAt: new Date().toISOString() }));
     } catch {}
-  }, [data, step]);
+  }, [data, step, resetVersion]);
 
   // Restore step on mount
   useEffect(() => {
@@ -76,8 +83,17 @@ export function TradeProvider({ children }: { children: React.ReactNode }) {
   const update = (partial: Partial<TradeData>) =>
     setData((prev) => ({ ...prev, ...partial }));
 
+  const resetTradeWizard = () => {
+    setResetVersion((version) => version + 1);
+    setData(defaults);
+    setStep(1);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {}
+  };
+
   return (
-    <TradeContext.Provider value={{ step, setStep, data, update }}>
+    <TradeContext.Provider value={{ step, setStep, data, update, resetTradeWizard }}>
       {children}
     </TradeContext.Provider>
   );

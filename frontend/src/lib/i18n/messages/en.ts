@@ -351,6 +351,7 @@ const messages = {
     "transaction_hash_7534364": "Transaction Hash",
     "view_trade_details_c527f5b": "View Trade Details",
     "view_all_trades_20304ec": "View All Trades",
+    start_new_trade: "Start New Trade",
     "go_back_f03e2d0": "Go Back",
     "by_submitting_you_authorize_a_st_2a21969": "By submitting, you authorize a Stellar transaction to create an escrow trade, locking",
     "cngn_in_the_amana_escrow_contrac_539a265": "cNGN in the Amana escrow contract.",
